@@ -34,7 +34,7 @@ jobs:
           
       - name: Update GitOps
         run: |
-          git clone https://x-access-token:${{ secrets.GITOPS_PAT }}@github.com/sufatech/infra-gitops.git
+          git clone -b dev https://x-access-token:${{ secrets.GITOPS_PAT }}@github.com/sufatech/infra-gitops.git
           cd infra-gitops
           
           # yq kurulu değilse kur
