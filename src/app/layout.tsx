@@ -23,6 +23,14 @@ export const metadata: Metadata = {
     siteName: "Orti",
     locale: "tr_TR",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Orti Logo",
+      },
+    ],
   },
 };
 
