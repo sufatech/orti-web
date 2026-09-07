@@ -11,7 +11,7 @@ export function Hero() {
   const { t } = useI18n();
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-primary">
+    <section id="hero" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-[radial-gradient(ellipse_at_top_right,_#7D2AE8_0%,_#630ED4_50%,_#4905A3_100%)]">
       {/* Background glowing blobs for dark theme */}
       <div className="absolute top-1/4 -left-1/4 w-[40rem] h-[40rem] bg-white/10 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-secondary/20 rounded-full blur-[150px] -z-10" />
@@ -63,15 +63,15 @@ export function Hero() {
           </motion.div>
 
           {/* Right Column - Mockup Preview */}
-          <div className="lg:col-span-7 relative mx-auto w-full flex items-center justify-center mt-12 lg:mt-0 min-h-[580px] sm:min-h-[680px] lg:min-h-[780px]">
-            <div className="relative w-full max-w-[520px] sm:max-w-[620px] lg:max-w-[720px] h-[520px] sm:h-[620px] lg:h-[700px] flex items-center justify-center">
+          <div className="lg:col-span-7 relative mx-auto w-full flex items-center justify-center min-h-[500px] sm:min-h-[600px] lg:min-h-[700px]">
+            <div className="relative w-full aspect-square max-w-[500px] sm:max-w-[600px] lg:max-w-[700px] flex items-center justify-center">
               
-              {/* Left Phone - Groups & Dashboard (device_gruplar_tilted.png / Gruplar) -> Foreground, Larger, Tilted Left (-12°) */}
+              {/* Left Phone - Foreground, Tilted Left */}
               <motion.div
                 initial={{ opacity: 0, x: -40, y: 20 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-                className="absolute top-0 sm:top-2 lg:top-4 left-0 sm:left-2 lg:left-4 z-20 w-[240px] sm:w-[315px] md:w-[365px] lg:w-[415px] xl:w-[445px] pointer-events-none"
+                className="absolute z-20 w-[65%] -translate-x-[20%] translate-y-[8%] pointer-events-none"
               >
                 <Image 
                   src="/images/mockups/device_gruplar_tilted.png" 
@@ -84,12 +84,12 @@ export function Hero() {
                 />
               </motion.div>
 
-              {/* Right Phone - Wallet & Balance (device_cuzdan_tilted.png / Cüzdanım) -> Background, Smaller, Tilted Right (+12°) */}
+              {/* Right Phone - Background, Tilted Right */}
               <motion.div
                 initial={{ opacity: 0, x: 40, y: 30 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ delay: 0.35, duration: 0.8, ease: "easeOut" }}
-                className="absolute top-10 sm:top-12 lg:top-16 right-0 sm:right-2 lg:right-6 z-10 w-[195px] sm:w-[255px] md:w-[295px] lg:w-[335px] xl:w-[360px] pointer-events-none"
+                className="absolute z-10 w-[58%] translate-x-[30%] -translate-y-[5%] pointer-events-none"
               >
                 <Image 
                   src="/images/mockups/device_cuzdan_tilted.png" 
@@ -105,7 +105,7 @@ export function Hero() {
               {/* Floating Cards */}
               {/* Top-Left: Alacak */}
               <FloatingCard 
-                className="top-4 sm:top-8 left-0 sm:-left-4 lg:-left-6 z-30" 
+                className="top-[15%] left-[0%] sm:left-[5%] z-30" 
                 delay={0.5} 
                 yOffset={8}
                 duration={4.2}
@@ -121,7 +121,7 @@ export function Hero() {
 
               {/* Right: Grup Bilgisi */}
               <FloatingCard 
-                className="top-1/3 -right-6 sm:-right-12 lg:-right-20 z-30" 
+                className="top-[45%] right-[-5%] sm:right-[0%] z-30" 
                 delay={0.7} 
                 yOffset={10} 
                 duration={5}
@@ -137,7 +137,7 @@ export function Hero() {
 
               {/* Bottom-Center: Hesaplaşma Tamamlandı */}
               <FloatingCard 
-                className="-bottom-6 sm:-bottom-4 left-[45%] sm:left-[55%] z-30" 
+                className="bottom-[8%] left-[40%] sm:left-[45%] z-30" 
                 delay={0.9} 
                 yOffset={8} 
                 duration={4.6}
