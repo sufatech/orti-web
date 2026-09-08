@@ -71,7 +71,7 @@ export function Hero() {
                 initial={{ opacity: 0, x: -40, y: 20 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-                className="absolute z-20 w-[65%] -translate-x-[20%] translate-y-[8%] pointer-events-none"
+                className="absolute z-20 w-[60%] -translate-x-[10%] translate-y-[10%] pointer-events-none"
               >
                 <Image 
                   src="/images/mockups/device_gruplar_tilted.png" 
@@ -89,7 +89,7 @@ export function Hero() {
                 initial={{ opacity: 0, x: 40, y: 30 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ delay: 0.35, duration: 0.8, ease: "easeOut" }}
-                className="absolute z-10 w-[58%] translate-x-[30%] -translate-y-[5%] pointer-events-none"
+                className="absolute z-10 w-[55%] translate-x-[20%] -translate-y-[10%] pointer-events-none"
               >
                 <Image 
                   src="/images/mockups/device_cuzdan_tilted.png" 

@@ -16,6 +16,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Orti | Ortak Harcama ve Grup Bütçe Yönetimi",
   description: "Orti ile ev arkadaşlarınızla, tatil grubunuzla veya ailenizle ortak harcamalarınızı kolayca takip edin ve adil bir şekilde bölüşün.",
+  metadataBase: new URL("https://orti.app"),
   openGraph: {
     title: "Orti | Ortak Harcama ve Grup Bütçe Yönetimi",
     description: "Ortak harcamalarınızı kolayca takip edin ve adil bir şekilde bölüşün.",
@@ -23,14 +24,6 @@ export const metadata: Metadata = {
     siteName: "Orti",
     locale: "tr_TR",
     type: "website",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Orti Logo",
-      },
-    ],
   },
 };
 
