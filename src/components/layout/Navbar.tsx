@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -14,6 +14,7 @@ export function Navbar() {
   const [isPastHero, setIsPastHero] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const isSubpage = pathname !== "/";
   const { locale, setLocale, t } = useI18n();
 
@@ -50,7 +51,7 @@ export function Navbar() {
 
   const handleDownloadClick = () => {
     if (isSubpage) {
-      window.location.href = "/#download";
+      router.push("/#download");
     } else {
       document.getElementById("download")?.scrollIntoView({ behavior: "smooth" });
     }

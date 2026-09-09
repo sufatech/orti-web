@@ -11,43 +11,38 @@ interface I18nContextType {
 
 const I18nContext = createContext<I18nContextType | null>(null);
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("tr");
-  const [isInitialized, setIsInitialized] = useState(false);
+function getInitialLocale(): Locale {
+  if (typeof window === "undefined") {
+    return "tr";
+  }
 
-  useEffect(() => {
-    // 1. Check saved preference in localStorage
+  try {
     const savedLocale = localStorage.getItem("orti_locale") as Locale | null;
     if (savedLocale === "tr" || savedLocale === "en") {
-      setLocaleState(savedLocale);
-      document.documentElement.lang = savedLocale;
-      setIsInitialized(true);
-      return;
+      return savedLocale;
     }
 
-    // 2. Region / Browser Language Auto-Detection
-    try {
-      const browserLang = navigator.language || (navigator.languages && navigator.languages[0]) || "";
-      if (browserLang.toLowerCase().startsWith("tr")) {
-        setLocaleState("tr");
-        document.documentElement.lang = "tr";
-      } else {
-        // Default to English for international visitors outside Turkey
-        setLocaleState("en");
-        document.documentElement.lang = "en";
-      }
-    } catch {
-      setLocaleState("tr");
-      document.documentElement.lang = "tr";
-    }
+    const browserLang = navigator.language || (navigator.languages && navigator.languages[0]) || "";
+    return browserLang.toLowerCase().startsWith("tr") ? "tr" : "en";
+  } catch {
+    return "tr";
+  }
+}
 
-    setIsInitialized(true);
-  }, []);
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
-    localStorage.setItem("orti_locale", newLocale);
-    document.documentElement.lang = newLocale;
+    try {
+      localStorage.setItem("orti_locale", newLocale);
+    } catch {
+      // Ignore storage errors in restricted contexts
+    }
   };
 
   const t = translations[locale];
