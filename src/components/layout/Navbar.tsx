@@ -75,7 +75,7 @@ export function Navbar() {
           }`}
           aria-label="Orti"
         >
-          <Logo className="h-7 w-auto" />
+          <Logo className="h-6 w-auto" />
         </Link>
 
         {/* Desktop Nav */}

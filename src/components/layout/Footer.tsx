@@ -24,7 +24,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="inline-flex items-center mb-5 hover:opacity-85 transition-opacity text-white" aria-label="Orti">
-              <Logo className="h-8 w-auto" />
+              <Logo className="h-7 w-auto" />
             </Link>
             <p className="text-white/75 max-w-sm mb-6 text-sm leading-relaxed">
               {t.footer.tagline}
