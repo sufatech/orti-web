@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 import { useI18n } from "@/i18n/I18nContext";
 
 export function Navbar() {
@@ -68,11 +68,14 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <Image src="/app_icon.png" alt="Orti" width={36} height={36} className="rounded-xl shadow-sm" />
-          <span className="text-xl font-bold tracking-tight">
-            Orti
-          </span>
+        <Link
+          href="/"
+          className={`flex items-center hover:opacity-80 transition-opacity ${
+            isLightTheme ? "text-primary" : "text-white"
+          }`}
+          aria-label="Orti"
+        >
+          <Logo className="h-7 w-auto" />
         </Link>
 
         {/* Desktop Nav */}

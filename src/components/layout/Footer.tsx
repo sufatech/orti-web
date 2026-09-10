@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Mail, MessageCircle, Globe } from "lucide-react";
 import { useI18n } from "@/i18n/I18nContext";
 import { siteConfig } from "@/config/site";
+import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,11 +23,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-4 hover:opacity-85 transition-opacity">
-              <Image src="/app_icon.png" alt="Orti" width={34} height={34} className="rounded-xl shadow-md" />
-              <span className="text-2xl font-bold tracking-tight text-white">
-                Orti
-              </span>
+            <Link href="/" className="inline-flex items-center mb-5 hover:opacity-85 transition-opacity text-white" aria-label="Orti">
+              <Logo className="h-8 w-auto" />
             </Link>
             <p className="text-white/75 max-w-sm mb-6 text-sm leading-relaxed">
               {t.footer.tagline}

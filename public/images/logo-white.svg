@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="25 64 162 70">
+  <g fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- o -->
+    <circle cx="56" cy="106.5" r="18"/>
+    <!-- r: stem + arm -->
+    <path d="M95,124.5 L95,100 C95,91 103,88 114,88.5"/>
+    <!-- t: stem + bottom curl -->
+    <path d="M133,73 L133,114 C133,122 143,124.5 152,124"/>
+    <!-- t: crossbar -->
+    <line x1="133" y1="88" x2="152" y2="88"/>
+    <!-- i: stem -->
+    <line x1="175.5" y1="89" x2="175.5" y2="124.5"/>
+    <!-- i: dot -->
+    <circle cx="176" cy="73.5" r="6.8" fill="#FFFFFF" stroke="none"/>
+  </g>
+</svg>
