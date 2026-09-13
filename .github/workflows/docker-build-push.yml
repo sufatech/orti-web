@@ -41,7 +41,13 @@ jobs:
           # yq kurulu değilse kur
           wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 && chmod +x /usr/local/bin/yq
           
-          yq -i ".image.tag = \"${{ steps.vars.outputs.tag }}\"" clusters/orti/dev/services/website.yaml
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            ENV_DIR="prod"
+          else
+            ENV_DIR="dev"
+          fi
+          
+          yq -i ".image.tag = \"${{ steps.vars.outputs.tag }}\"" clusters/orti/${ENV_DIR}/services/website.yaml
           
           git config user.name "CI Bot"
           git config user.email "ci-bot@sufatech.com"
