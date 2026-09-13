@@ -33,7 +33,7 @@ export function FloatingCard({
           ease: "easeInOut",
           delay: delay % duration
         }}
-        className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_16px_36px_rgba(0,0,0,0.14)] border border-white/70 p-3.5 sm:p-4 flex items-center gap-3.5 whitespace-nowrap text-slate-900"
+        className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_16px_36px_rgba(0,0,0,0.14)] border border-white/70 p-3.5 pr-6 sm:p-4 sm:pr-8 flex items-center gap-3.5 whitespace-nowrap text-slate-900"
       >
         {children}
       </motion.div>

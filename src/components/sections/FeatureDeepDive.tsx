@@ -24,7 +24,7 @@ export function FeatureDeepDive() {
           iconBg: "bg-primary/10",
           title: t.deepDive.quickAdd.card1Title,
           value: "₺1,450.00",
-          position: "top-10 -left-6 lg:-left-14",
+          position: "top-10 -left-10 lg:-left-20",
           delay: 0.2,
         },
         {
@@ -33,7 +33,7 @@ export function FeatureDeepDive() {
           iconBg: "bg-primary/10",
           title: t.deepDive.quickAdd.card2Title,
           value: t.deepDive.quickAdd.card2Val,
-          position: "bottom-24 -right-4 lg:-right-10",
+          position: "bottom-24 -right-10 lg:-right-20",
           delay: 0.6,
         }
       ]
@@ -52,7 +52,7 @@ export function FeatureDeepDive() {
           iconBg: "bg-emerald-50",
           title: t.deepDive.settle.card1Title,
           value: "₺800.00",
-          position: "top-20 -right-4 lg:-right-12",
+          position: "top-20 -right-10 lg:-right-20",
           delay: 0.3,
         }
       ]
@@ -71,7 +71,7 @@ export function FeatureDeepDive() {
           iconBg: "bg-primary/10",
           title: t.deepDive.goals.card1Title,
           value: t.deepDive.goals.card1Val,
-          position: "bottom-12 sm:bottom-16 -left-6 lg:-left-12",
+          position: "bottom-12 sm:bottom-16 -left-10 lg:-left-20",
           delay: 0.4,
         }
       ]
@@ -90,7 +90,7 @@ export function FeatureDeepDive() {
           iconBg: "bg-primary/10",
           title: t.deepDive.groups.card1Title,
           value: t.deepDive.groups.card1Val,
-          position: "top-1/4 -left-6 lg:-left-12",
+          position: "top-1/4 -left-10 lg:-left-20",
           delay: 0.2,
         },
         {
@@ -99,7 +99,7 @@ export function FeatureDeepDive() {
           iconBg: "bg-primary/10",
           title: t.deepDive.groups.card2Title,
           value: t.deepDive.groups.card2Val,
-          position: "bottom-20 -right-6 lg:-right-14",
+          position: "bottom-20 -right-14 lg:-right-28",
           delay: 0.7,
         }
       ]
