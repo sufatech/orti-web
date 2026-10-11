@@ -2,6 +2,7 @@
 
 import { useI18n } from "@/i18n/I18nContext";
 import PrivacyPolicyTr from "@/content/privacy-policy.mdx";
+import PrivacyPolicyEn from "@/content/privacy-policy-en.mdx";
 
 export default function PrivacyPolicyPage() {
   const { locale, t } = useI18n();
@@ -24,11 +25,7 @@ export default function PrivacyPolicyPage() {
 
         {/* Content */}
         <div className="prose prose-neutral max-w-none text-text-muted leading-relaxed">
-          {locale === "tr" ? (
-            <PrivacyPolicyTr />
-          ) : (
-            <p>English translation is currently not available. Please switch to Turkish.</p>
-          )}
+          {locale === "tr" ? <PrivacyPolicyTr /> : <PrivacyPolicyEn />}
         </div>
       </div>
     </div>

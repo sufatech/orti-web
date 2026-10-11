@@ -2,9 +2,18 @@
 
 import Link from "next/link";
 import { useI18n } from "@/i18n/I18nContext";
+import { siteConfig } from "@/config/site";
+import { Mail, Smartphone } from "lucide-react";
 
 export default function DeleteAccountPage() {
   const { locale } = useI18n();
+  const isTr = locale === "tr";
+
+  const subject = isTr ? "Hesap Silme Talebi" : "Account Deletion Request";
+  const body = isTr
+    ? "Merhaba,\n\nOrti hesabımın ve hesabıma bağlı kişisel verilerimin silinmesini talep ediyorum.\n\nNot: Bu e-posta, Orti'ye kayıtlı e-posta adresimden gönderilmiştir."
+    : "Hello,\n\nI request the deletion of my Orti account and the personal data linked to it.\n\nNote: This email is sent from the email address registered with Orti.";
+  const mailtoHref = `mailto:${siteConfig.supportEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   return (
     <div className="min-h-screen bg-surface pt-32 pb-24">
@@ -12,74 +21,62 @@ export default function DeleteAccountPage() {
         {/* Header */}
         <div className="border-b border-black/10 pb-8 mb-12">
           <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">
-            Orti
+            {siteConfig.name}
           </p>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-text-main tracking-tight mb-4">
-            {locale === "tr" ? "Hesap Silme Talebi" : "Account Deletion Request"}
+            {isTr ? "Hesap ve Veri Silme" : "Account & Data Deletion"}
           </h1>
+          <p className="text-text-muted text-sm">
+            {isTr
+              ? "Orti hesabınızı ve kişisel verilerinizi silmek için aşağıdaki yöntemlerden birini kullanabilirsiniz."
+              : "You can use one of the methods below to delete your Orti account and personal data."}
+          </p>
         </div>
 
-        {/* Content */}
-        <div className="prose prose-neutral max-w-none text-text-muted leading-relaxed">
-          {locale === "tr" ? (
-            <>
-              <p>Orti hesabınızı ve tüm kişisel verilerinizi kalıcı olarak silmek istiyorsanız aşağıdaki adımlardan birini izleyebilirsiniz:</p>
-              
-              <h3 className="font-bold text-text-main mt-6 mb-2">1. Uygulama İçinden Silme (Önerilen)</h3>
-              <p>Eğer Orti uygulamasına erişiminiz varsa, doğrudan uygulama içinden silebilirsiniz:</p>
-              <ul>
-                <li>Uygulamayı açın ve giriş yapın.</li>
-                <li>Menüden <strong>Ayarlar</strong> bölümüne gidin.</li>
-                <li><strong>Hesabı Sil</strong> butonuna dokunun ve onaylayın.</li>
-              </ul>
-              
-              <h3 className="font-bold text-text-main mt-6 mb-2">2. E-Posta Yoluyla Silme (Uygulamaya erişemiyorsanız)</h3>
-              <p>Uygulamaya erişiminiz yoksa, kayıtlı e-posta adresinizden bize yazarak silme talebinde bulunabilirsiniz:</p>
-              <ul>
-                <li><strong>Alıcı:</strong> <a href="mailto:hello@orti.app" className="text-primary hover:underline">hello@orti.app</a></li>
-                <li><strong>Konu:</strong> Hesap Silme Talebi</li>
-                <li>E-postayı mutlaka Orti&apos;ye kayıtlı olduğunuz adresten gönderin. Ekibimiz kimliğinizi doğruladıktan sonra işlemi gerçekleştirecektir.</li>
-              </ul>
+        <div className="space-y-8">
+          {/* Method 1: In-app */}
+          <div className="bg-white p-6 rounded-2xl border border-black/5 shadow-sm space-y-3">
+            <h3 className="text-lg font-bold text-text-main flex items-center gap-2">
+              <Smartphone size={18} className="text-primary shrink-0" />
+              {isTr ? "1. Uygulama İçinden (En Hızlı Yöntem)" : "1. From Inside the App (Fastest)"}
+            </h3>
+            <ol className="list-decimal list-inside space-y-1.5 text-sm text-text-main font-medium pl-1">
+              <li>{isTr ? "Orti uygulamasını açın ve giriş yapın." : "Open the Orti app and sign in."}</li>
+              <li>{isTr ? "Ayarlar ekranına gidin." : "Go to Settings."}</li>
+              <li>{isTr ? "En alttaki 'Hesabımı Sil' seçeneğine dokunup onaylayın." : "Tap 'Delete Account' at the bottom and confirm."}</li>
+            </ol>
+          </div>
 
-              <h3 className="font-bold text-text-main mt-6 mb-2">Verilerin Silinme Süreci</h3>
-              <p>
-                Hesap silme işlemi başlatıldığında hesabınız hemen devre dışı bırakılır. 30 günlük bekleme süresinin ardından tüm kişisel verileriniz, yüklediğiniz fişler ve oturum bilgileriniz kalıcı olarak silinir. 
-                Grup harcamalarınızın tutarları diğer üyelerin bakiyelerinin bozulmaması için sistemde isimsiz (&ldquo;Silinmiş kullanıcı&rdquo;) olarak kalır.
-              </p>
-              <p>
-                Süreç ve verilerinizin nasıl işlendiği ile ilgili ayrıntılı bilgi için <Link href="/privacy-policy#7-saklama-süreleri-ve-hesap-silme" className="text-primary hover:underline">Gizlilik Politikamızın 7. Bölümünü</Link> inceleyebilirsiniz.
-              </p>
-            </>
-          ) : (
-            <>
-              <p>If you wish to permanently delete your Orti account and all personal data, you can follow one of the steps below:</p>
-              
-              <h3 className="font-bold text-text-main mt-6 mb-2">1. Deletion from within the App (Recommended)</h3>
-              <p>If you have access to the Orti app, you can delete it directly from within the app:</p>
-              <ul>
-                <li>Open the app and log in.</li>
-                <li>Go to <strong>Settings</strong> from the menu.</li>
-                <li>Tap the <strong>Delete Account</strong> button and confirm.</li>
-              </ul>
-              
-              <h3 className="font-bold text-text-main mt-6 mb-2">2. Deletion via Email (If you cannot access the app)</h3>
-              <p>If you do not have access to the app, you can request deletion by writing to us from your registered email address:</p>
-              <ul>
-                <li><strong>To:</strong> <a href="mailto:hello@orti.app" className="text-primary hover:underline">hello@orti.app</a></li>
-                <li><strong>Subject:</strong> Account Deletion Request</li>
-                <li>Make sure to send the email from the address registered with Orti. Our team will process the request after verifying your identity.</li>
-              </ul>
+          {/* Method 2: Email */}
+          <div className="bg-white p-6 rounded-2xl border border-black/5 shadow-sm space-y-4">
+            <h3 className="text-lg font-bold text-text-main flex items-center gap-2">
+              <Mail size={18} className="text-primary shrink-0" />
+              {isTr ? "2. E-posta ile (Uygulamaya erişemiyorsanız)" : "2. By Email (If you cannot access the app)"}
+            </h3>
+            <p className="text-text-muted text-sm leading-relaxed">
+              {isTr
+                ? `Orti'ye kayıtlı e-posta adresinizden ${siteConfig.supportEmail} adresine bir e-posta gönderin. Kimliğinizi doğrulamak için ek bilgi isteyebiliriz. Talebinizi en geç 30 gün içinde yanıtlarız.`
+                : `Send an email to ${siteConfig.supportEmail} from the email address registered with Orti. We may ask for additional information to verify your identity. We respond to requests within 30 days.`}
+            </p>
+            <a
+              href={mailtoHref}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary hover:opacity-90 text-white text-sm font-semibold transition-all shadow-sm"
+            >
+              <Mail size={16} />
+              {isTr ? "Silme Talebi E-postası Oluştur" : "Compose Deletion Request Email"}
+            </a>
+          </div>
 
-              <h3 className="font-bold text-text-main mt-6 mb-2">Data Deletion Process</h3>
-              <p>
-                When the account deletion process is initiated, your account is immediately deactivated. After a 30-day waiting period, all your personal data, uploaded receipts, and session information are permanently deleted. 
-                Your group expense amounts will remain anonymously (&ldquo;Deleted user&rdquo;) in the system so that the balances of other members are not disrupted.
-              </p>
-              <p>
-                For detailed information on the process and how your data is handled, you can review <Link href="/terms-of-service" className="text-primary hover:underline">Section 7 of our Privacy Policy</Link>.
-              </p>
-            </>
-          )}
+          <div className="text-xs text-text-muted pt-4 border-t border-black/10">
+            <p className="leading-relaxed">
+              {isTr
+                ? "Hangi verilerin silindiği ve hangilerinin yasal yükümlülükler veya diğer üyelerin kayıtlarının bütünlüğü için tutulduğu hakkında ayrıntılı bilgi için "
+                : "For details on which data is deleted and which is retained for legal obligations or to preserve other members' records, see our "}
+              <Link href="/privacy-policy" className="text-primary font-semibold hover:underline">
+                {isTr ? "Gizlilik Politikası" : "Privacy Policy"}
+              </Link>.
+            </p>
+          </div>
         </div>
       </div>
     </div>

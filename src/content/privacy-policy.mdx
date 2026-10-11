@@ -1,161 +1,261 @@
 # Gizlilik Politikası ve Kişisel Verilerin İşlenmesine İlişkin Aydınlatma Metni
 
-**Sürüm:** 2.0 · **Yürürlük tarihi:** [YAYIN TARİHİ]
+**Sürüm:** 2.0 · **Son Güncelleme:** Ekim 2026
 
-Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") madde 10 kapsamındaki aydınlatma yükümlülüğünü yerine getirmek ve Orti mobil uygulamasını ("Orti", "Uygulama") kullandığınızda verilerinizin nasıl işlendiğini açıklamak amacıyla hazırlanmıştır.
+Bu Gizlilik Politikası ve Aydınlatma Metni, **SufaTech** ("Şirket", "Geliştirici", "Veri Sorumlusu") tarafından sunulan **Orti** mobil uygulaması, `orti.app` web platformu, ilişkili API servisleri ve Orti ekosistemi bünyesindeki tüm mevcut ve gelecekteki alt uygulamalar, eklentiler ve modüller ("Orti", "Uygulamalar", "Platform" veya "Hizmetler") için geçerlidir.
 
----
-
-## 1. Veri Sorumlusu
-
-| | |
-|---|---|
-| **Veri sorumlusu** | [AD SOYAD] (gerçek kişi) |
-| **İletişim e-postası** | [E-POSTA] |
-| **Başvuru / tebligat adresi** | [POSTA ADRESİ veya KEP ADRESİ] |
-
-Orti'yi kullanmanız hâlinde kişisel verilerinizin işlenmesinden yukarıdaki kişi sorumludur.
+Bu metin, Avrupa Birliği Genel Veri Koruma Tüzüğü ("GDPR"), Birleşik Krallık GDPR'ı, Kaliforniya Tüketici Gizliliği Yasası ("CCPA/CPRA") ve kullanıcılarımızın bulunduğu ülkelerdeki ilgili veri koruma mevzuatı ile Apple App Store İnceleme Kılavuzları ve Google Play Geliştirici Politikaları uyarınca; kullanıcılarımızın kişisel verilerinin hangi kapsamda toplandığını, işlendiğini, saklandığını ve hangi taraflarla paylaşıldığını şeffaf bir biçimde açıklamak amacıyla hazırlanmıştır.
 
 ---
 
-## 2. Hangi Verileri İşliyoruz?
+## 1. Veri Sorumlusu ve İletişim
 
-| Kategori | İşlenen veriler | Nasıl toplanır |
-|---|---|---|
-| **Hesap bilgileri** | E-posta adresi, görünen ad, profil fotoğrafı (isteğe bağlı) | Giriş yaparken ve profilinizi düzenlerken sizden alınır |
-| **Grup ve harcama kayıtları** | Oluşturduğunuz veya katıldığınız gruplar, harcamalar (tutar, tarih, kategori, açıklama), harcama paylaşımları, borç/alacak bakiyeleri, hesaplaşma kayıtları, yorumlar, notlar, ortak hedefler ve katkılar | Uygulamayı kullanırken sizin girdiğiniz veriler |
-| **Fiş ve fatura görselleri** | Harcamaya eklediğiniz fiş/fatura fotoğrafları | Kamera veya galeriden sizin seçtiğiniz görseller |
-| **Davet bilgileri** | Bir gruba davet ettiğiniz kişinin e-posta adresi | Davet gönderirken sizin girdiğiniz veri |
-| **Oturum ve güvenlik kayıtları** | IP adresi, cihaz türü (iOS/Android), işletim sistemi ve uygulama sürümü, oturum ve giriş zamanları | Uygulama ile sunucularımız arasındaki iletişimden otomatik olarak |
-| **Hata ve kilitlenme raporları** | Hata kaydı, cihaz modeli, işletim sistemi ve uygulama sürümü, rastgele kurulum kimliği, kullanıcı kimlik numaranız (UID) | Firebase Crashlytics aracılığıyla otomatik olarak |
-| **Kullanım analitiği** *(yalnızca onay verirseniz)* | Ekran görüntüleme ve etkileşim olayları, rastgele kurulum kimliği, genel cihaz bilgileri | Firebase Analytics aracılığıyla otomatik olarak |
-| **Destek yazışmaları** | Bize gönderdiğiniz mesajlar ve e-posta adresiniz | Sizinle iletişime geçtiğinizde |
-| **Onay kayıtları** | Kabul ettiğiniz Kullanım Koşulları / Gizlilik Politikası sürümü ve kabul zamanı, analitik tercihiniz | Uygulama içi onay ekranlarından |
+Kişisel verilerinizin işlenmesinden sorumlu kuruluş ve iletişim kanalları aşağıdadır:
 
-**Toplamadığımız veriler:** Telefon numarası, hassas (GPS) konum bilgisi, rehber, mikrofon verisi, ödeme kartı veya banka hesabı bilgisi toplamıyoruz. Orti bir ödeme uygulaması değildir. Kamera ve fotoğraf galerisi izinleri yalnızca fiş taramak ve profil fotoğrafı seçmek için kullanılır.
+<div className="not-prose my-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <div className="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
+    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider block mb-1">Veri Sorumlusu / Hizmet Sağlayıcı</span>
+    <span className="text-base font-bold text-text-main">SufaTech (Orti)</span>
+  </div>
+  <div className="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
+    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider block mb-1">Resmi Web Sitesi</span>
+    <a href="https://orti.app" className="text-base font-bold text-primary hover:underline">https://orti.app</a>
+  </div>
+  <div className="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
+    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider block mb-1">Destek ve Gizlilik İletişim E-postası</span>
+    <a href="mailto:support@orti.app" className="text-base font-bold text-primary hover:underline">support@orti.app</a>
+  </div>
+  <div className="bg-white p-5 rounded-2xl border border-black/5 shadow-sm">
+    <span className="text-xs font-semibold text-text-muted uppercase tracking-wider block mb-1">Hesap ve Veri Silme Portalı</span>
+    <a href="https://orti.app/delete-account" className="text-base font-bold text-primary hover:underline">orti.app/delete-account</a>
+  </div>
+</div>
 
-**Özel nitelikli veriler:** Orti'nin işleyişi için sağlık, din, siyasi görüş gibi özel nitelikli kişisel verilere ihtiyaç yoktur. Lütfen harcama açıklamaları, yorum ve notlara bu tür bilgileri yazmayın.
-
----
-
-## 3. Fiş Tarama Nasıl Çalışır?
-
-Fiş üzerindeki metni okuma (OCR) işlemi cihazınızda çalışan Google ML Kit ile yapılır. Google'ın belgelerine göre görüntü ve metin girdisi tamamen cihazda işlenir ve Google sunucularına gönderilmez. ML Kit, hata düzeltmeleri ve model güncellemeleri için zaman zaman Google sunucularıyla iletişim kurabilir ve API'nin performans ve kullanım metriklerini Google'a gönderir.
-
-Tarama sonrasında fiş görselini bir harcamaya eklemeyi seçerseniz bu görsel sunucularımıza yüklenir ve saklanır (bkz. Bölüm 7). Fişlerde başkalarına ait bilgiler (ad, kart numarasının son hanesi gibi) yer alabilir; lütfen gerekmedikçe bu bilgilerin göründüğü görselleri yüklemeyin.
-
----
-
-## 4. İşleme Amaçları ve Hukuki Sebepler
-
-| Amaç | Hukuki sebep (KVKK m.5) |
-|---|---|
-| Hesap oluşturma, giriş ve oturum yönetimi | Sözleşmenin kurulması ve ifası (m.5/2-c) |
-| Grup, harcama, bakiye ve hesaplaşma özelliklerinin sunulması; grup üyeleriyle paylaşım | Sözleşmenin kurulması ve ifası (m.5/2-c) |
-| Fiş görsellerinin harcamaya eklenmesi ve saklanması | Sözleşmenin kurulması ve ifası (m.5/2-c) |
-| Bilgi güvenliği, kötüye kullanımın ve yetkisiz erişimin önlenmesi | Meşru menfaat (m.5/2-f) |
-| Hata ve kilitlenme raporlarıyla uygulamanın düzeltilmesi ve iyileştirilmesi | Meşru menfaat (m.5/2-f) |
-| Yasal yükümlülükler kapsamında erişim kayıtlarının ve silme işlemi kayıtlarının tutulması, yetkili makam taleplerinin yanıtlanması | Hukuki yükümlülük (m.5/2-ç) |
-| Uyuşmazlık, dava veya soruşturma hâlinde hakların tesisi, kullanılması ve korunması; kabul ve silme kayıtlarının ispat amacıyla saklanması | Hakkın tesisi, kullanılması veya korunması (m.5/2-e) |
-| Hesap silindikten sonra grup kayıtlarının, diğer üyelerin kayıtlarının bütünlüğü için kimliksiz olarak saklanması | Meşru menfaat (m.5/2-f) |
-| Kullanım analitiği | Açık rıza (m.5/1) |
-| Destek taleplerinin yanıtlanması | Sözleşmenin ifası (m.5/2-c), meşru menfaat (m.5/2-f) |
-
-Analitik onayınız isteğe bağlıdır. Onay vermemeniz Uygulama'yı kullanmanıza engel değildir ve onayı istediğiniz zaman Ayarlar'dan geri alabilirsiniz.
+Kişisel verilerinizin işlenmesine, gizliliğe veya bu politikaya ilişkin her türlü soru, talep ve başvurunuzu doğrudan **support@orti.app** adresine iletebilirsiniz.
 
 ---
 
-## 5. Verileriniz Kimlerle Paylaşılır?
+## 2. Kapsam ve Alt Uygulamalar
 
-- **Grubunuzdaki diğer üyeler:** Görünen adınızı, profil fotoğrafınızı ve grupta eklediğiniz harcama, yorum, not, hedef, katkı ve hesaplaşma kayıtlarını görür. Grup kayıtlarının doğası gereği bu paylaşım Uygulama'nın temel işlevidir.
-- **Google (Firebase):** Kimlik doğrulama, kilitlenme raporları ve (onay verirseniz) analitik hizmetleri için. Ayrıca ML Kit'in performans metrikleri Google'a iletilir.
-- **Barındırma ve altyapı sağlayıcımız:** [SAĞLAYICI ADI, ÜLKE] — uygulama sunucuları ve dosya depolama için.
-- **E-posta gönderim sağlayıcımız:** [SAĞLAYICI ADI, ÜLKE] — giriş bağlantısı ve bildirim e-postaları için.
-- **Yetkili kamu kurum ve kuruluşları, mahkemeler:** Mevzuattan doğan yükümlülüklerimiz kapsamında, yasal bir talep olması hâlinde.
-
-Kişisel verilerinizi satmaz, reklam veya pazarlama amacıyla üçüncü taraflara aktarmayız.
+Bu politika; Orti ana mobil uygulamasının yanı sıra, Orti altyapısı üzerinde çalışan veya Orti ile entegre olan tüm alt servisleri, grup yönetim araçlarını, harcama bölüşüm ve bütçe takip modüllerini, web arayüzlerini ve gelecekte kullanıma sunulacak tamamlayıcı dijital servisleri kapsamaktadır. Hizmetlerimizi kullanarak veya hesap oluşturarak bu metinde belirtilen veri işleme esaslarını kabul etmiş sayılırsınız.
 
 ---
 
-## 6. Yurt Dışına Aktarım
+## 3. Hangi Verileri Topluyoruz?
 
-Firebase hizmetleri (kimlik doğrulama, Crashlytics, Analytics) Google'ın sistemlerinde, sunucularımız ve dosya depolama ise [SUNUCU KONUMU ÜLKE]'deki altyapı sağlayıcımızın sistemlerinde çalışır; bu nedenle verileriniz Türkiye dışına aktarılır. Aktarımlar, KVKK madde 9 uyarınca Kişisel Verileri Koruma Kurulu tarafından ilan edilen standart sözleşmeye dayanır. Aktarımın hangi güvenceye dayandığı hakkında bilgi almak için bize başvurabilirsiniz.
+Uygulamamızın temel işlevlerini eksiksiz yerine getirebilmesi, kullanıcı deneyiminin sağlanması ve bilgi güvenliğinin temini amacıyla aşağıdaki kategorilerde veriler işlenmektedir:
 
----
+### 3.1. Hesap ve Kimlik Bilgileri
+* **E-posta Adresi:** Şifresiz güvenli giriş (Magic Link) bağlantısı göndermek, hesabınızı doğrulamak ve hesap bildirimlerini iletmek için.
+* **Görünen Ad / Profil Bilgisi:** Gruplarınızda ve arkadaş listenizde diğer üyelerin sizi tanıyabilmesi için girdiğiniz ad, soyad veya rumuz.
+* **Profil Fotoğrafı (İsteğe Bağlı):** Seçmeniz hâlinde profilinizi kişiselleştirmek için yüklediğiniz görsel.
+* **Kullanıcı Kimlik Numarası (UID):** Sistem içinde hesabınızı güvenli şekilde temsil eden rastgele oluşturulmuş benzersiz kimlik.
+* **Google ile Giriş:** Google ile giriş yaparsanız Google hesabınızdaki ad, e-posta adresi ve profil fotoğrafı bağlantısı alınır. Hesabınızda henüz profil fotoğrafı yoksa bu bağlantı profil fotoğrafı olarak kullanılabilir.
+* **Apple ile Giriş:** Apple ile giriş yaparsanız e-posta adresiniz alınır. "E-postamı Gizle" seçeneğini kullanırsanız bu, Apple'ın ürettiği gizli (röle) bir e-posta adresi olur ve bildirimlerimiz bu adrese iletilir. Ad ve soyadınız yalnızca Apple'ın ilk girişte paylaşmasına izin verdiği ölçüde alınır.
+* **Parola alınmaz:** Google ve Apple ile girişte parolanız bize iletilmez. Bu sağlayıcıların ürettiği kimlik belirteci (ID token) yalnızca kimliğinizi doğrulamak için Firebase aracılığıyla doğrulanır.
 
-## 7. Saklama Süreleri ve Hesap Silme
+### 3.2. Grup, Harcama ve Finansal Takip Kayıtları
+* **Grup ve Arkadaş Listeleri:** Oluşturduğunuz veya davet edildiğiniz grupların adları, türleri (ev, tatil, arkadaşlık vb.) ve üyeleri.
+* **Harcama Kayıtları:** Harcama başlığı, tutar, para birimi, harcama tarihi, harcama kategorisi, harcamayı ödeyen kişi ve harcama bölüşüm oranları (eşit, yüzde, pay veya kesin tutar bazlı bölüşümler).
+* **Bakiye ve Hesaplaşma Hareketleri:** Grup ve ikili arkadaşlıklar arasındaki güncel borç/alacak bakiyeleri, tarafların birbirine ödeme yaptığını bildirdiği hesaplaşma kayıtları.
+* **Ortak Notlar ve Hedefler:** Grup veya arkadaşlık bünyesinde oluşturulan ortak hedef bütçeleri, katkı miktarları ve paylaşılan notlar.
 
-Verilerinizi, işlendikleri amaç için gerekli olan süre boyunca ve mevzuatın öngördüğü süreler kadar saklarız; süre dolduğunda silinir, yok edilir veya anonim hâle getirilir.
+### 3.3. Fiş ve Fatura Görselleri
+* **Kullanıcı Tarafından Yüklenen Belgeler:** Harcama detaylarına eklemek üzere kamera veya fotoğraf galerinizden seçtiğiniz fiş, fatura veya hesap dökümü görselleri.
+* **Fiş Metin İçeriği:** Fiş tarama (OCR) özelliği aracılığıyla fiş görselinden otomatik okunan kalemler, tutarlar ve tarihler.
 
-### 7.1 Hesabınızı Nasıl Silersiniz?
+### 3.4. Cihaz, Oturum ve Güvenlik Bilgileri
+* **Oturum ve Erişim Kayıtları:** IP adresi, oturum açma tarih/saati, erişilen uç noktalar, kullanıcı oturum belirteçleri (tokens).
+* **Cihaz Özellikleri:** Cihaz işletim sistemi türü ve sürümü (iOS / Android), cihaz modeli, uygulama sürümü ve sistem dil ayarı.
+* **Bildirim Belirteci (Push Token):** Anlık bildirim gönderebilmek için cihazınıza ait Firebase Cloud Messaging (FCM) bildirim belirteci. Bildirim iznini cihaz ayarlarından kapatabilirsiniz.
 
-**Ayarlar > Hesabı Sil** adımını izleyin. Uygulamaya erişemiyorsanız [orti.app/delete-account](https://orti.app/delete-account) sayfasından talep oluşturabilir veya [E-POSTA] adresine yazabilirsiniz.
+### 3.5. Çökme, Hata ve Performans Verileri
+* **Hata Raporları:** Uygulamanın çökmesi veya beklenmeyen bir hata vermesi durumunda, sorunun tespit edilip çözülebilmesi amacıyla toplanan teknik kaza dökümleri (stack trace), cihaz donanım durumu ve hata anındaki işlem bilgisi (Firebase Crashlytics).
 
-1. Hesabınız hemen devre dışı bırakılır ve tüm cihazlardaki oturumlarınız sonlandırılır.
-2. **30 gün** boyunca hesabınızı geri alabilirsiniz (aynı e-posta ile giriş yaparak).
-3. 30 günün sonunda kişisel verileriniz aşağıdaki tabloya göre silinir veya anonimleştirilir.
-
-### 7.2 Hangi Veri Ne Kadar Saklanır?
-
-| Veri | Saklama süresi ve silme şekli |
-|---|---|
-| Hesap bilgileri (e-posta, ad, profil fotoğrafı) | Hesap aktif olduğu sürece. Silme talebinden 30 gün sonra silinir. |
-| Oturum ve giriş bilgileri | Hesap silindiğinde hemen sonlandırılır ve silinir. |
-| Fiş ve profil fotoğrafı dosyaları | Hesabınız, ilgili harcama veya grup silindiğinde en geç 30 gün içinde sunucudan kalıcı olarak silinir. |
-| Grup harcama, bakiye ve hesaplaşma kayıtları | Grup aktif olduğu sürece. Bir üye hesabını sildiğinde adı, profil fotoğrafı ve kimliği kaldırılır; kayıtlarda "Silinmiş kullanıcı" görünür ve tutarlar diğer üyelerin kayıtlarının bütünlüğü için kalır. Grup silindiğinde 30 gün içinde kalıcı olarak silinir. |
-| Yorumlar ve notlar | Hesap silindiğinde yazarın kimliği kaldırılır. Grup silindiğinde 30 gün içinde kalıcı olarak silinir. |
-| Davet bilgileri | Davet kabul edilene veya davet süresi ([DAVET SÜRESİ] gün) dolana kadar; süre dolunca silinir. |
-| Denetim ve etkinlik kayıtları | En fazla 1 yıl; hesap silindiğinde kişisel alanlar arındırılır. |
-| Erişim (log) kayıtları (IP, zaman, kullanıcı kimliği) | Yürürlükteki mevzuat (5651 sayılı Kanun) uyarınca tutulması gereken erişim kayıtları 1 yıl saklanır ve süre sonunda silinir. |
-| Hata ve kilitlenme raporları | Firebase üzerinde en fazla 90 gün. |
-| Kullanım analitiği (onaylıysa) | Firebase üzerinde en fazla 2 ay. |
-| **Hukuki kanıt kaydı** | Kullanıcı kimlik numarası (UID), e-posta adresinizin geri döndürülemez özeti (hash), hesap oluşturma ve silme tarihi, kabul ettiğiniz metin sürümleri ve silme talebi kaydı: **hesap silindikten sonra 3 yıl**. Bu kayıtta harcama, not, yorum, fiş gibi içerik bulunmaz. Devam eden bir dava, soruşturma veya uyuşmazlık varsa ilgili kayıtlar bunun sonuçlanmasına kadar saklanır. |
-| Yedekler | Silinen veriler yedeklerden en geç 30 gün içinde yok olur. |
-
----
-
-## 8. Güvenlik
-
-Verilerinizi korumak için aktarım sırasında TLS şifrelemesi, erişim yetkilendirmesi ve kayıtların kısıtlı erişimli tutulması gibi makul teknik ve idari tedbirleri uygularız. Hiçbir internet iletiminin veya depolama yönteminin %100 güvenli olduğu garanti edilemez. Giriş bağlantınızı (magic link) başkalarıyla paylaşmayın.
-
-Bir veri ihlali olması hâlinde mevzuatın öngördüğü süre içinde Kişisel Verileri Koruma Kurulu'na ve gerektiğinde ilgili kişilere bildirim yaparız.
+### 3.6. Destek ve İletişim Verileri
+* Destek ekibimize e-posta üzerinden gönderdiğiniz mesajlar, bildirdiğiniz hata detayları ve destek geçmişiniz.
 
 ---
 
-## 9. Haklarınız (KVKK m.11)
+## 4. Kesinlikle Toplamadığımız ve İşlemediğimiz Veriler
 
-Veri sorumlusuna başvurarak şunları talep edebilirsiniz:
+Kullanıcı gizliliğine verdiğimiz önemin bir gereği olarak, uygulamamız aşağıdaki verileri **asla** toplamaz, saklamaz veya işlemez:
 
-- Kişisel verilerinizin işlenip işlenmediğini öğrenme,
-- İşlenmişse buna ilişkin bilgi talep etme,
-- İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,
-- Yurt içinde veya yurt dışında verilerin aktarıldığı üçüncü kişileri bilme,
-- Eksik veya yanlış işlenmişse düzeltilmesini isteme,
-- KVKK m.7 çerçevesinde silinmesini veya yok edilmesini isteme,
-- Düzeltme ve silme işlemlerinin verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,
-- İşlenen verilerin münhasıran otomatik sistemlerle analiz edilmesi sonucu aleyhinize bir sonuç doğmasına itiraz etme,
-- Kanuna aykırı işlenmesi nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme.
-
-## 10. Başvuru Yöntemi
-
-Taleplerinizi Uygulama'da kayıtlı e-posta adresinizden **[E-POSTA]** adresine veya **[POSTA/KEP ADRESİ]** adresine iletebilirsiniz. Kimliğinizi doğrulamak için ek bilgi isteyebiliriz. Başvurularınızı talebin niteliğine göre en kısa sürede ve en geç **30 gün** içinde ücretsiz olarak sonuçlandırırız. İşlemin ayrıca bir maliyet gerektirmesi hâlinde Kişisel Verileri Koruma Kurulu'nca belirlenen tarifedeki ücret talep edilebilir.
-
-Cevabı yetersiz bulursanız veya süresinde cevap alamazsanız, KVKK m.14 uyarınca Kişisel Verileri Koruma Kurulu'na şikâyette bulunma hakkınız saklıdır.
+* **Banka Hesabı ve Kredi Kartı Bilgileri:** Orti bir ödeme kuruluşu, banka veya e-para platformu değildir. Uygulama içerisinden para transferi yapılmaz. Kredi kartı numarası, CVV, banka şifresi veya ödeme aracı bilgileri sistemimize girilmez ve saklanmaz.
+* **Telefon Rehberi (Kişiler):** Cihazınızın rehberine erişilmez, rehberiniz taranmaz veya sunucularımıza kopyalanmaz.
+* **Hassas Konum (GPS):** Arka planda veya ön planda kesin GPS konum bilginiz takip edilmez.
+* **Biyometrik Veriler:** Yüz tanıma, parmak izi veya ses kayıtları işlenmez.
+* **Özel Nitelikli Kişisel Veriler:** Sağlık, din, siyasi düşünce, sendika üyeliği gibi özel nitelikli veriler toplanmaz. Kullanıcıların harcama açıklamalarına bu tür hassas bilgileri yazmaması önemle rica olunur.
 
 ---
 
-## 11. Otomatik Karar Verme
+## 5. Kamera ve Fotoğraf Galerisi İzinleri
 
-Hakkınızda yalnızca otomatik sistemlerle hukuki sonuç doğuran veya sizi önemli ölçüde etkileyen kararlar verilmez.
+Uygulamamız kamera veya fotoğraf galerisi izinlerini yalnızca kullanıcı açıkça talep ettiğinde kullanır:
+1. **Fiş/Fatura Tarama:** Harcamaya fiş eklemek amacıyla kamera ile fotoğraf çekmek veya galeriden var olan fiş fotoğrafını seçmek.
+2. **Profil Görseli:** İsteğe bağlı olarak profil resmi yüklemek.
 
-## 12. Çocuklar
+Bu izinler arka planda gizlice çalıştırılmaz. İzin vermeyi reddedebilirsiniz; bu durumda harcamalarınızı manuel tutar girerek girmeye devam edebilirsiniz.
 
-Orti, 18 yaşından küçük kişilere yönelik değildir ve bilerek 18 yaş altındaki kişilerin verilerini işlemeyiz. 18 yaşından küçük birinin hesap oluşturduğunu fark edersek hesabı ve verilerini sileriz.
+---
 
-## 13. Değişiklikler
+## 6. Fiş Tarama (OCR) ve Cihaz İçi İşleme Güvenliği
 
-Bu metni güncelleyebiliriz. Önemli değişiklikleri Uygulama içinden veya e-posta ile duyurur, gerektiğinde onayınızı yeniden isteriz. Güncel sürüm ve yürürlük tarihi bu sayfanın başında yer alır.
+Fiş tarama özelliğinde metin tanıma işlemi Google ML Kit teknolojisi ile **tamamen kullanıcının cihazı üzerinde (on-device)** gerçekleştirilir.
+* Taranan ham fiş görseli, harici üçüncü taraf yapay zeka bulutlarına analiz amacıyla iletilmez.
+* Tarama sırasında fiş görseli sunucularımıza gönderilmez. Görsel yalnızca harcamayı **kaydettiğinizde**, o harcamaya ek olarak sunucularımıza yüklenir; harcamayı kaydetmeden vazgeçerseniz yüklenmez.
+* Google ML Kit, hata düzeltmeleri ve model güncellemeleri için zaman zaman Google sunucularıyla iletişim kurabilir ve API'nin performans ve kullanım metriklerini Google'a gönderebilir; fiş içeriğiniz bu metriklere dahil değildir.
+* Fiş görsellerinde şahsi hassas bilgilerinizin (örneğin kredi kartınızın son 4 hanesi dışındaki numaralar veya üçüncü şahıs isimleri) yer almadığından emin olmanız önerilir.
 
-## 14. İletişim
+---
 
-Bu metinle ilgili sorularınız için: **[E-POSTA]**
+## 7. Verilerin İşlenme Amaçları ve Hukuki Sebepleri
+
+Toplanan kişisel veriler, GDPR Madde 6 ve ilgili mevzuat uyarınca aşağıdaki hukuki sebeplere dayalı olarak işlenir:
+
+<div className="not-prose my-6 space-y-3">
+  <div className="bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <span className="text-sm font-medium text-text-main">Kullanıcı hesabı oluşturma, giriş bağlantısı gönderme ve oturum yönetimi</span>
+    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">Sözleşmenin İfası</span>
+  </div>
+  <div className="bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <span className="text-sm font-medium text-text-main">Grup ve ikili arkadaş harcamalarının kaydedilmesi, bölüşülmesi, bakiyelerin hesaplanması</span>
+    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">Sözleşmenin İfası</span>
+  </div>
+  <div className="bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <span className="text-sm font-medium text-text-main">Fiş ve harcama görsellerinin gruptaki ilgili kayıtla eşleştirilerek saklanması</span>
+    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">Sözleşmenin İfası</span>
+  </div>
+  <div className="bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <span className="text-sm font-medium text-text-main">Sistem güvenliğinin sağlanması, kötüye kullanım, yetkisiz erişim ve dolandırıcılığın önlenmesi</span>
+    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 shrink-0">Meşru Menfaat</span>
+  </div>
+  <div className="bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <span className="text-sm font-medium text-text-main">Çökme ve hata raporları ile uygulama performansının ve kararlılığının iyileştirilmesi</span>
+    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 shrink-0">Meşru Menfaat</span>
+  </div>
+  <div className="bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <span className="text-sm font-medium text-text-main">Yürürlükteki mevzuattan doğan yasal saklama yükümlülükleri</span>
+    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200 shrink-0">Hukuki Yükümlülük</span>
+  </div>
+  <div className="bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <span className="text-sm font-medium text-text-main">Olası hukuki uyuşmazlıklarda savunma hakkının kullanılması, delil tespiti</span>
+    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 shrink-0">Hakkın Tesisi & Korunması</span>
+  </div>
+  <div className="bg-white p-4 rounded-xl border border-black/5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <span className="text-sm font-medium text-text-main">Destek ve iletişim taleplerinin çözümlenmesi</span>
+    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">Sözleşmenin İfası</span>
+  </div>
+</div>
+
+---
+
+## 8. Verileriniz Kimlerle Paylaşılır? (Tarafların Türleri)
+
+Kişisel verileriniz, yalnızca Hizmetler'in doğası gereği zorunlu olan ve aşağıda kategorize edilen taraflarla paylaşılır:
+
+1. **Grubunuzdaki ve Arkadaş Listenizdeki Diğer Kullanıcılar:**
+   * Grupta paylaştığınız görünen adınız, profil fotoğrafınız, girdiğiniz harcamalar, tutarlar, açıklamalar, fiş fotoğrafları, notlar, ortak hedefler ve hesaplaşma kayıtları gruptaki diğer üyeler tarafından görülebilir.
+   * Bu paylaşım, uygulamanın temel varlık sebebidir (ortak harcama takibi).
+
+2. **Bulut Altyapısı ve Veritabanı Sağlayıcıları:**
+   * Uygulama sunucularımız, PostgreSQL veritabanımız ve güvenli dosya depolama alanlarımız, bulut altyapı sağlayıcılarının veri merkezlerinde barındırılır.
+   * Sunucularımız Almanya'daki Hetzner veri merkezlerinde barındırılır. Alan adı, DNS ve ağ güvenliği (CDN/DDoS koruması) için Cloudflare kullanılır.
+   * Bu sağlayıcılar yalnızca altyapı hizmeti sunar.
+
+3. **Kimlik Doğrulama ve Çökme Analitiği Sağlayıcıları:**
+   * **Google Firebase Authentication:** Şifresiz giriş bağlantıları (Magic Link) ve güvenli kimlik doğrulama token'larının üretilmesi için kullanılır.
+   * **Google ile Giriş (Google LLC) ve Apple ile Giriş (Apple Inc.):** Bu yöntemlerle giriş yaparsanız kimlik doğrulaması ilgili şirket tarafından yürütülür; bu şirketler kendi gizlilik politikalarına tabidir.
+   * **Google Firebase Cloud Messaging (FCM) ve Apple Push Notification Service (APNs):** Anlık bildirimlerin cihazınıza iletilmesi için kullanılır.
+   * **Google Firebase Crashlytics:** Uygulama çökmelerinde anonim donanım ve yazılım hata raporlarının toplanması için kullanılır.
+
+4. **E-posta İletim Servisleri:**
+   * Kullanıcıya tek kullanımlık güvenli giriş bağlantısını (Magic Link) ve kritik hesap güvenlik bildirimlerini ulaştırmak için anlaşmalı kurumsal SMTP ve e-posta iletim altyapıları kullanılır.
+
+5. **Yetkili Kamu ve Adli Makamlar:**
+   * Yasal bir zorunluluk, mahkeme kararı, savcılık talebi veya mevzuat gereği zorunlu olan hallerde, yalnızca ilgili mevzuatın emrettiği kapsamla sınırlı olarak yetkili resmi kurum ve kuruluşlarla paylaşılabilir.
+
+### 8.1. Uluslararası Veri Aktarımları
+
+Verileriniz Almanya'daki (AB) sunucularımızda saklanır. Cloudflare (ağ ve güvenlik katmanı, küresel ağ), Google (Firebase) ve Apple gibi hizmet sağlayıcılar verileri kendi altyapılarında, dünyanın farklı ülkelerinde işleyebilir. Verileriniz AB/AEA veya Birleşik Krallık dışına aktarıldığında, uygulanabilir olduğu hâllerde Avrupa Komisyonu'nun Standart Sözleşme Maddeleri gibi yasal aktarım mekanizmalarına dayanılır.
+
+> **ÖNEMLİ TAAHHÜT:** Kişisel verileriniz hiçbir surette üçüncü taraflara satılmaz, kiralanmaz, reklam ağlarıyla veya veri simsarlarıyla (data brokers) pazarlama veya profilleme amacıyla paylaşılmaz.
+
+---
+
+## 9. Veri Saklama Süreleri ve Hesap Silme Mekanizması
+
+### 9.1. Hesabınızı Nasıl Silebilirsiniz?
+* **Uygulama İçinden:** `Ayarlar > Hesabımı Sil` adımlarını izleyin. Silmeden önce uyarı ekranı gösterilir ve işlemi onaylamak için `SİL` yazmanız istenir.
+* **E-posta ile:** Uygulamaya erişemiyorsanız, kayıtlı e-posta adresinizden **support@orti.app** adresine yazın veya [orti.app/delete-account](https://orti.app/delete-account) sayfasındaki adımları izleyin. Talebiniz en geç 30 gün içinde sonuçlandırılır.
+
+**Hesap silme işlemi geri alınamaz.** Bekleme veya geri alma süresi yoktur.
+
+### 9.2. Silme Sonrası Verileriniz
+**Silinen veriler:**
+* E-posta adresi, telefon numarası, profil fotoğrafı, kullanıcı adı ve giriş (kimlik doğrulama) kayıtlarınız,
+* Kişisel cüzdanınızdaki ve yalnızca size ait kayıtlar ve bu kayıtlara bağlı dosyalar,
+* Oturumlarınız ve bildirim (push) token'larınız.
+
+**Gruplarda kalan veriler:**
+Gruplar, ortak bir kayıt defteridir ve diğer üyelerin geçmiş bakiyelerinin ve hesaplaşma haklarının doğruluğu için gereklidir. Bu nedenle:
+* Dahil olduğunuz gruplardaki harcama, tutar, açıklama, not ve gruba eklediğiniz fiş görselleri **grubun kaydı olarak saklanmaya devam eder**.
+* Hesabınız, e-posta, telefon veya başka iletişim bilgisi içermeyen **"hayalet" (ghost) bir üye** olarak gruplarda kalır. Yalnızca grupta görünen adınız saklanır.
+* Grup yöneticisi bu üyenin adını değiştirebilir (ör. takma ad).
+* Bu kayıtlar, grubun kendisi silinene kadar saklanır.
+* Belirli bir fişin ya da adınızın tümüyle kaldırılmasını **support@orti.app** üzerinden talep edebilirsiniz.
+
+**Daha sonra gruba geri dönmek isterseniz:** Grup yöneticisi sizi e-posta adresinizle bu hayalet üyeye eşleştirir ve e-posta doğrulamasıyla giriş yaptığınızda eski üyeliğiniz size bağlanır. Silinen hesabınızın kendisi geri getirilemez.
+
+**Yedekler ve güvenlik kayıtları:** Silinen veriler yedeklerden makul bir süre içinde ve döngüsel olarak temizlenir. Güvenlik ve kötüye kullanımı önleme amacıyla tutulan sunucu kayıtları sınırlı bir süre saklanır.
+
+### 9.3. Verilerinizi Dışa Aktarma
+Verilerinizin bir kopyasını **support@orti.app** adresinden talep edebilirsiniz. Hesabı silmeden önce verilerinizi uygulama içinden dışa aktarabileceğiniz bir özellik üzerinde çalışıyoruz; kullanıma sunulduğunda bu politika güncellenecektir.
+
+---
+
+## 10. Bilgi Güvenliği Tedbirleri
+
+Kişisel verilerinizi yetkisiz erişime, kaybolmaya ve kötüye kullanıma karşı korumak için makul teknik ve idari tedbirler uygularız. Bunlar arasında uygulama ile sunucularımız arasındaki iletişimin aktarım sırasında şifrelenmesi (TLS/HTTPS), erişim yetkilendirmesi ve kayıtlara erişimin kısıtlanması yer alır.
+
+Hiçbir internet iletiminin veya depolama yönteminin %100 güvenli olduğu garanti edilemez. Giriş bağlantınızı (magic link) başkalarıyla paylaşmayın.
+
+Bir veri ihlali olması hâlinde mevzuatın öngördüğü süre içinde yetkili veri koruma otoritesine ve gerektiğinde ilgili kişilere bildirim yaparız.
+---
+
+## 11. Kullanıcı Hakları
+
+Bulunduğunuz ülkenin mevzuatına (ör. GDPR, UK GDPR, CCPA/CPRA) göre aşağıdaki haklara sahip olabilirsiniz:
+* Verilerinize erişme ve kopyasını alma (taşınabilirlik),
+* Hatalı veya eksik verilerin düzeltilmesini isteme,
+* Verilerinizin silinmesini isteme,
+* İşlenmesini kısıtlama veya işlenmesine itiraz etme,
+* Rızaya dayalı işlemelerde rızanızı geri çekme,
+* Yetkili veri koruma otoritesine şikâyette bulunma,
+* CCPA/CPRA kapsamında: kişisel verilerinizin satılmadığını ve reklam amacıyla paylaşılmadığını bilme; haklarınızı kullandığınız için ayrımcılığa uğramama.
+
+Haklarınızı kullanmak için kayıtlı e-posta adresinizden **support@orti.app** adresine başvurabilirsiniz. Başvurularınız en geç **30 gün** içinde ücretsiz olarak sonuçlandırılacaktır.
+
+---
+
+## 12. Çocukların ve Gençlerin Gizliliği
+
+Hizmetlerimiz **14 yaş ve üzerindeki** bireylere yöneliktir. 14 ile 18 yaş arasındaki genç kullanıcılar, Hizmetlerimizi veli veya yasal vasilerinin bilgisi ve onayı dahilinde kullanabilir. 14 yaşın altındaki bireylerden bilerek kişisel veri toplamayız; sistemlerimizde 14 yaş altı bir kullanıcıya ait veri tespit edilirse söz konusu veriler derhal silinir.
+
+---
+
+## 13. Politika Değişiklikleri ve Kullanıcı Bildirimi
+
+Bu Gizlilik Politikası zaman zaman güncellenebilir:
+* **Önemli ve Esaslı Değişiklikler:** Toplanan veri kategorilerinin genişletilmesi, yeni üçüncü taraf veri paylaşım ortaklarının eklenmesi veya kullanım amaçlarının değişmesi gibi kullanıcı haklarını doğrudan etkileyen değişikliklerde; yürürlüğe girmeden önce **uygulama içi bildirim** veya **e-posta yoluyla** kullanıcılara önceden bilgi verilir.
+* **Küçük ve Açıklayıcı Değişiklikler:** Yazım düzeltmeleri, ifade netleştirmeleri veya mevzuata uyum amaçlı biçimsel güncellemeler bu sayfada yayınlandığı tarihte yürürlüğe girer. En güncel sürüm her zaman bu web sayfasında yer almaktadır.
+
+---
+
+## 14. İletişim Bilgileri
+
+Gizlilik politikamız, kişisel verileriniz veya uygulamamızın veri uygulamaları hakkındaki tüm sorularınız için bizimle iletişime geçebilirsiniz:
+
+* **E-posta:** [support@orti.app](mailto:support@orti.app)
+* **Web:** [https://orti.app](https://orti.app)
+* **Hesap Silme Portalı:** [https://orti.app/delete-account](https://orti.app/delete-account)

@@ -1,6 +1,8 @@
 "use client";
+
 import { useI18n } from "@/i18n/I18nContext";
 import TermsOfServiceTr from "@/content/terms-of-service.mdx";
+import TermsOfServiceEn from "@/content/terms-of-service-en.mdx";
 
 export default function TermsPage() {
   const { locale, t } = useI18n();
@@ -23,11 +25,7 @@ export default function TermsPage() {
 
         {/* Content */}
         <div className="prose prose-neutral max-w-none text-text-muted leading-relaxed">
-          {locale === "tr" ? (
-            <TermsOfServiceTr />
-          ) : (
-            <p>English translation is currently not available. Please switch to Turkish.</p>
-          )}
+          {locale === "tr" ? <TermsOfServiceTr /> : <TermsOfServiceEn />}
         </div>
       </div>
     </div>

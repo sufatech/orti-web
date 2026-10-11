@@ -194,12 +194,12 @@ export const translations = {
     privacyPage: {
       badge: "Veri Güvenliği & KVKK",
       title: "Gizlilik Politikası",
-      lastUpdated: "Son Güncelleme: 7 Eylül 2026",
+      lastUpdated: "Son Güncelleme: Ekim 2026",
     },
     termsPage: {
       badge: "Hizmet Şartları",
       title: "Kullanım Koşulları",
-      lastUpdated: "Son Güncelleme: 7 Eylül 2026",
+      lastUpdated: "Son Güncelleme: Ekim 2026",
     }
   },
   en: {
@@ -395,12 +395,12 @@ export const translations = {
     privacyPage: {
       badge: "Data Security & Privacy",
       title: "Privacy Policy",
-      lastUpdated: "Last Updated: September 7, 2026",
+      lastUpdated: "Last Updated: October 2026",
     },
     termsPage: {
       badge: "Terms of Service",
       title: "Terms of Service",
-      lastUpdated: "Last Updated: September 7, 2026",
+      lastUpdated: "Last Updated: October 2026",
     }
   }
 } as const;
