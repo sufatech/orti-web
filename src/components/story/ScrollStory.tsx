@@ -136,10 +136,7 @@ export function ScrollStory() {
                   ) : null}
                   {/* Static (reduced motion) mode: each step carries its own iPhone */}
                   <div className="mt-8 hidden motion-reduce:block">
-                    <IPhone
-                      className="w-60"
-                      statusBarTone={STEP_SCREENS[i] === "settle-up" ? "dim" : "light"}
-                    >
+                    <IPhone className="w-60">
                       <Image
                         {...imgProps}
                         src={getScreenSrc(STEP_SCREENS[i], locale)}
@@ -159,7 +156,7 @@ export function ScrollStory() {
                 style={{ rotate: phoneRotate, y: phoneY, scale: phoneScale }}
                 className="relative h-[86%] sm:h-[90%] lg:h-[82%]"
               >
-                <IPhone className="h-full" statusBarTone="transparent">
+                <IPhone className="h-full">
                   <Layer progress={p} range={r(W.screenAdd)} startVisible className="absolute inset-0">
                     <Image
                       {...imgProps}
@@ -169,7 +166,6 @@ export function ScrollStory() {
                       fetchPriority="high"
                       className={screenCls}
                     />
-                    <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[5.3%] bg-white" />
                   </Layer>
                   <Layer progress={p} range={r(W.screenDebts)} className="absolute inset-0">
                     <Image
@@ -179,7 +175,6 @@ export function ScrollStory() {
                       loading="lazy"
                       className={screenCls}
                     />
-                    <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[5.3%] bg-white" />
                   </Layer>
                   <Layer progress={p} range={r(W.screenSettle)} holdEnd className="absolute inset-0">
                     <Image
@@ -189,7 +184,6 @@ export function ScrollStory() {
                       loading="lazy"
                       className={screenCls}
                     />
-                    <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[5.3%] bg-[#999999]" />
                   </Layer>
                 </IPhone>
 

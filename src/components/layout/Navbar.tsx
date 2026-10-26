@@ -9,9 +9,11 @@ import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { useI18n } from "@/i18n/I18nContext";
 
+const NAV_PROBE_Y = 56;
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPastHero, setIsPastHero] = useState(false);
+  const [isOverLightSection, setIsOverLightSection] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -19,24 +21,40 @@ export function Navbar() {
   const { locale, setLocale, t } = useI18n();
 
   useEffect(() => {
-    const handleScroll = () => {
+    const updateSurface = () => {
+      setIsScrolled(window.scrollY > 16);
+
+      if (pathname !== "/") {
+        setIsOverLightSection(true);
+        return;
+      }
+
       const hero = document.getElementById("hero");
-      const heroHeight = hero ? hero.offsetHeight : 700;
-      setIsScrolled(window.scrollY > 20);
-      setIsPastHero(window.scrollY >= heroHeight - 70);
+      const download = document.getElementById("download");
+      const footer = document.querySelector("footer");
+
+      const heroRect = hero?.getBoundingClientRect();
+      const inHero = heroRect ? heroRect.bottom > NAV_PROBE_Y : window.scrollY < 640;
+
+      const downloadRect = download?.getBoundingClientRect();
+      const inDownload = downloadRect ? downloadRect.top <= NAV_PROBE_Y : false;
+
+      const footerRect = footer?.getBoundingClientRect();
+      const inFooter = footerRect ? footerRect.top <= NAV_PROBE_Y : false;
+
+      setIsOverLightSection(!inHero && !inDownload && !inFooter);
     };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
+    updateSurface();
+    window.addEventListener("scroll", updateSurface, { passive: true });
+    window.addEventListener("resize", updateSurface, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      window.removeEventListener("scroll", updateSurface);
+      window.removeEventListener("resize", updateSurface);
     };
   }, [pathname]);
 
-  // Light theme navbar (white bg, dark text) only on subpages OR when scrolled past the purple hero
-  const isLightTheme = isSubpage || isPastHero;
+  const isLightTheme = isSubpage || isOverLightSection;
 
   const navLinks = [
     { name: t.nav.features, href: isSubpage ? "/#features" : "#features" },
@@ -53,25 +71,30 @@ export function Navbar() {
     if (isSubpage) {
       router.push("/#download");
     } else {
-      document.getElementById("download")?.scrollIntoView({ behavior: "smooth" });
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document
+        .getElementById("download")
+        ?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
     }
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,border-color,padding,box-shadow,color] duration-200 motion-reduce:transition-none ${
         isLightTheme
-          ? "bg-white/95 backdrop-blur-md border-black/10 shadow-sm py-3 text-text-main"
+          ? "bg-white/90 backdrop-blur-md border-black/[0.08] shadow-[0_4px_20px_rgba(15,8,34,0.06)] py-3 text-text-main"
           : isScrolled
-          ? "bg-primary/85 backdrop-blur-md border-white/10 shadow-sm py-3 text-white"
-          : "bg-transparent border-transparent py-4 text-white"
+            ? "bg-primary-deep/90 backdrop-blur-md border-white/15 shadow-[0_8px_24px_rgba(15,8,34,0.22)] py-3 text-white"
+            : "bg-primary-deep/65 backdrop-blur-md border-white/10 py-3.5 text-white"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link
           href="/"
-          className={`flex items-center hover:opacity-80 transition-opacity ${
-            isLightTheme ? "text-primary" : "text-white"
+          className={`flex items-center rounded-lg hover:opacity-85 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-4 ${
+            isLightTheme
+              ? "text-primary focus-visible:outline-primary"
+              : "text-white focus-visible:outline-white"
           }`}
           aria-label="Orti"
         >
@@ -84,12 +107,12 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`transition-colors text-sm font-medium ${
+              className={`rounded-md px-1 py-0.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 ${
                 isLightTheme
                   ? pathname === link.href
-                    ? "text-primary font-bold"
-                    : "text-text-muted hover:text-primary"
-                  : "text-white/80 hover:text-white"
+                    ? "text-primary font-bold focus-visible:outline-primary"
+                    : "text-text-main/80 hover:text-primary focus-visible:outline-primary"
+                  : "text-white/90 hover:text-white focus-visible:outline-white"
               }`}
             >
               {link.name}
@@ -100,22 +123,27 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           {/* Language Switcher */}
           <button
+            type="button"
             onClick={toggleLanguage}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all border ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors border focus-visible:outline-2 focus-visible:outline-offset-2 ${
               isLightTheme
-                ? "border-black/10 text-text-main hover:bg-slate-100 hover:border-primary/30"
-                : "border-white/30 text-white hover:bg-white/10 hover:border-white"
+                ? "border-black/15 text-text-main hover:bg-primary-container/60 hover:border-primary/30 focus-visible:outline-primary"
+                : "border-white/30 bg-white/10 text-white hover:bg-white/20 hover:border-white focus-visible:outline-white"
             }`}
             title="Dili Değiştir / Change Language"
           >
-            <Globe size={14} />
+            <Globe size={14} aria-hidden="true" />
             <span className="uppercase">{locale}</span>
           </button>
 
-          <Button 
-            variant={isLightTheme ? "primary" : "outline"} 
-            className={isLightTheme ? "" : "border-white text-white hover:bg-white/10"} 
-            size="sm" 
+          <Button
+            variant={isLightTheme ? "primary" : "outline"}
+            className={
+              isLightTheme
+                ? ""
+                : "border-white/80 bg-white text-primary hover:bg-white/90 focus-visible:outline-white"
+            }
+            size="sm"
             onClick={handleDownloadClick}
           >
             {t.nav.download}
@@ -125,18 +153,27 @@ export function Navbar() {
         {/* Mobile Toggle & Language */}
         <div className="flex md:hidden items-center gap-2">
           <button
+            type="button"
             onClick={toggleLanguage}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border ${
-              isLightTheme ? "border-black/10 text-text-main" : "border-white/30 text-white"
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${
+              isLightTheme
+                ? "border-black/15 text-text-main hover:bg-primary-container/60 focus-visible:outline-primary"
+                : "border-white/30 bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white"
             }`}
           >
-            <Globe size={13} />
+            <Globe size={13} aria-hidden="true" />
             <span className="uppercase">{locale}</span>
           </button>
 
           <button
-            className="p-2"
+            type="button"
+            className={`p-2 rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${
+              isLightTheme
+                ? "text-text-main hover:bg-black/5 focus-visible:outline-primary"
+                : "text-white hover:bg-white/10 focus-visible:outline-white"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
             aria-label="Toggle Menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -151,10 +188,11 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
             className={`md:hidden border-b overflow-hidden shadow-xl ${
               isLightTheme
-                ? "border-black/5 bg-white/95 backdrop-blur-xl text-text-main"
-                : "border-white/10 bg-primary/95 backdrop-blur-xl text-white"
+                ? "border-black/[0.08] bg-white/95 backdrop-blur-xl text-text-main"
+                : "border-white/15 bg-primary-deep/95 backdrop-blur-xl text-white"
             }`}
           >
             <nav className="flex flex-col p-6 gap-4">
@@ -162,10 +200,10 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-lg font-medium border-b pb-2 ${
+                  className={`text-lg font-medium border-b pb-2 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 ${
                     isLightTheme
-                      ? "border-black/5 text-text-main hover:text-primary"
-                      : "border-white/10 text-white hover:text-white/80"
+                      ? "border-black/[0.06] text-text-main hover:text-primary focus-visible:outline-primary"
+                      : "border-white/10 text-white hover:text-white/80 focus-visible:outline-white"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -173,9 +211,13 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="flex flex-col gap-3 mt-4">
-                <Button 
-                  variant={isLightTheme ? "primary" : "outline"} 
-                  className={isLightTheme ? "w-full" : "w-full border-white text-white hover:bg-white/10"} 
+                <Button
+                  variant={isLightTheme ? "primary" : "outline"}
+                  className={
+                    isLightTheme
+                      ? "w-full"
+                      : "w-full border-white/80 bg-white text-primary hover:bg-white/90"
+                  }
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     handleDownloadClick();

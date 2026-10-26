@@ -243,7 +243,7 @@ export const translations = {
         {
           question: "Verilerim ve finansal kayıtlarım güvende mi?",
           answer:
-            "Kesinlikle. Tüm verileriniz şifreli bağlantı (TLS) ve güvenli altyapı standartları ile korunur; üçüncü taraflarla asla paylaşılmaz.",
+            "Evet. Verileriniz şifreli bağlantı (TLS) üzerinden iletilir ve Almanya'daki (AB) sunucularımızda saklanır; yalnızca Orti'nin çalışması için zorunlu hizmet sağlayıcılar (ör. Firebase, Cloudflare) tarafından işlenir. Kişisel verileriniz hiçbir zaman satılmaz, kiralanmaz, reklam ağlarıyla veya veri simsarlarıyla paylaşılmaz.",
         },
       ],
     },
@@ -546,7 +546,7 @@ export const translations = {
         {
           question: "Is my personal and financial data secure?",
           answer:
-            "Yes, all data is protected with encrypted TLS connections and strict security standards. Your data is never sold to third parties.",
+            "Yes. Your data travels over encrypted TLS connections and is stored on our servers in Germany (EU); only service providers required to operate Orti (such as Firebase and Cloudflare) process it. Your personal data is never sold, rented, or shared with ad networks or data brokers.",
         },
       ],
     },

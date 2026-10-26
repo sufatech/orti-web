@@ -7,26 +7,15 @@ export type ScreenKey =
   | "add-expense"
   | "group-debts"
   | "settle-up"
-  | "first-run"
   | "debt-simplify"
   | "plans";
 
 /**
- * Target screen assets live at `/images/screens/<name>-<locale>.webp` (1206x2622).
- * Until all showcase captures are placed in `public/images/screens/`, they resolve
- * to the matching current-UI captures already present in `public/images/story/`.
+ * Showcase screen captures live at `/images/screens/<screen>-<locale>.webp`
+ * (1206x2622, current app UI with the iOS status bar baked in at the top).
  */
-const STORY_SCREEN_MAP: Record<ScreenKey, "quick_add" | "group_debts" | "settle_up"> = {
-  "add-expense": "quick_add",
-  "group-debts": "group_debts",
-  "settle-up": "settle_up",
-  "first-run": "quick_add",
-  "debt-simplify": "group_debts",
-  "plans": "settle_up",
-};
-
 export function getScreenSrc(screen: ScreenKey, locale: Locale): string {
-  return `/images/story/${STORY_SCREEN_MAP[screen]}-${locale}.webp`;
+  return `/images/screens/${screen}-${locale}.webp`;
 }
 
 export const storyChipClass =
@@ -77,8 +66,9 @@ export interface IPhoneProps {
    */
   bezelSrc?: string;
   /**
-   * Controls the top status bar backing inside the screen slot so legacy captures
-   * with baked-in status bars are cleanly covered under the iOS 18 status bar.
+   * Optional status bar tone hint retained for caller compatibility. Real
+   * captures in `/images/screens/` already include the iOS status bar at the top,
+   * so the frame only overlays the Dynamic Island hardware cutout.
    */
   statusBarTone?: "light" | "dim" | "transparent";
 }
@@ -86,27 +76,19 @@ export interface IPhoneProps {
 /**
  * Shared iPhone 16 Pro component (Natural Titanium).
  * Screen slot preserves the exact 1206x2622 aspect ratio (90.269% x 96.468% of
- * the 1336x2718 body coordinate space) with concentric corner radii, Dynamic
- * Island, and iOS 18 status bar (9:41, cellular signal, Wi-Fi, battery).
+ * the 1336x2718 body coordinate space) with concentric corner radii and Dynamic
+ * Island hardware cutout. Real screen captures already contain the iOS status bar.
  */
 export function IPhone({
   children,
   className,
   bezelSrc,
-  statusBarTone = "light",
 }: IPhoneProps) {
   const uid = useId().replace(/:/g, "");
   const bodyGradId = `ti-body-${uid}`;
   const edgeGradId = `ti-edge-${uid}`;
   const btnGradId = `ti-btn-${uid}`;
   const innerRimId = `ti-rim-${uid}`;
-
-  const statusFill =
-    statusBarTone === "dim"
-      ? "#999999"
-      : statusBarTone === "light"
-        ? "#FFFFFF"
-        : "transparent";
 
   return (
     <div
@@ -199,76 +181,18 @@ export function IPhone({
       <div className="absolute left-[4.865%] top-[1.766%] h-[96.468%] w-[90.269%] overflow-hidden rounded-[15.42%/7.09%] bg-white ring-1 ring-black/15">
         {children}
 
-        {/* iOS 18 Status Bar (9:41, Dynamic Island, cellular, Wi-Fi, battery) */}
+        {/* Dynamic Island hardware cutout (captures already include the iOS status bar) */}
         <svg
           viewBox="0 0 1206 142"
           fill="none"
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 top-0 z-20 w-full"
         >
-          {statusFill !== "transparent" && (
-            <rect x="0" y="0" width="1206" height="130" fill={statusFill} />
-          )}
-
-          {/* 9:41 clock */}
-          <text
-            x="214"
-            y="95"
-            textAnchor="middle"
-            fill="#0B0B0F"
-            fontSize="50"
-            fontWeight="700"
-            letterSpacing="-1"
-            style={{ fontVariantNumeric: "tabular-nums" }}
-          >
-            9:41
-          </text>
-
-          {/* Dynamic Island */}
           <rect x="417" y="34" width="372" height="104" rx="52" fill="#050507" />
           <circle cx="486" cy="86" r="14" fill="#0C0C12" />
           <circle cx="731" cy="86" r="21" fill="#0D0D15" stroke="#1D1D2B" strokeWidth="2.5" />
           <circle cx="725" cy="80" r="6" fill="#2E548E" opacity="0.8" />
           <circle cx="736" cy="91" r="3.5" fill="#5B82BD" opacity="0.45" />
-
-          {/* Cellular signal (4 ascending iOS bars) */}
-          <rect x="872" y="90" width="10.5" height="18" rx="3.2" fill="#0B0B0F" />
-          <rect x="888.5" y="81" width="10.5" height="27" rx="3.2" fill="#0B0B0F" />
-          <rect x="905" y="72" width="10.5" height="36" rx="3.2" fill="#0B0B0F" />
-          <rect x="921.5" y="62" width="10.5" height="46" rx="3.2" fill="#0B0B0F" />
-
-          {/* Wi-Fi icon */}
-          <path
-            d="M952 72.5C965.5 60.5 986.5 60.5 1000 72.5"
-            stroke="#0B0B0F"
-            strokeWidth="6.5"
-            strokeLinecap="round"
-          />
-          <path
-            d="M961 84C969.5 76.5 982.5 76.5 991 84"
-            stroke="#0B0B0F"
-            strokeWidth="6.5"
-            strokeLinecap="round"
-          />
-          <circle cx="976" cy="99" r="5.5" fill="#0B0B0F" />
-
-          {/* iOS horizontal battery */}
-          <rect
-            x="1020"
-            y="64"
-            width="78"
-            height="42"
-            rx="12"
-            stroke="#0B0B0F"
-            strokeOpacity="0.38"
-            strokeWidth="3.5"
-          />
-          <rect x="1027" y="71" width="64" height="28" rx="7" fill="#0B0B0F" />
-          <path
-            d="M1103 77.5C1106.8 77.5 1109.5 80.5 1109.5 85C1109.5 89.5 1106.8 92.5 1103 92.5V77.5Z"
-            fill="#0B0B0F"
-            fillOpacity="0.42"
-          />
         </svg>
 
         {/* Subtle optical glass sheen */}
