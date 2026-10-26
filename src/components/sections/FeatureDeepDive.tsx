@@ -1,204 +1,269 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Scan, HandCoins, Target, Users, Receipt, ArrowRightLeft, Trophy, UserPlus } from "lucide-react";
+import { useRef, type ReactNode } from "react";
 import Image from "next/image";
-import { FloatingCard } from "@/components/ui/FloatingCard";
+import * as m from "framer-motion/m";
+import { LazyMotion, domAnimation, useScroll } from "framer-motion";
+import {
+  ArrowRightLeft,
+  CheckCircle2,
+  FileArchive,
+  Receipt,
+  Sparkles,
+  Users,
+} from "lucide-react";
+import {
+  IPhone,
+  StoryChip,
+  getScreenSrc,
+  type ScreenKey,
+} from "@/components/story/PhoneFrame";
+import { useScrollTransform } from "@/components/story/useScrollTransform";
 import { useI18n } from "@/i18n/I18nContext";
+import type { Locale } from "@/i18n/translations";
+
+interface ChipSpec {
+  label: string;
+  value: string;
+  tone?: "default" | "positive" | "negative";
+  icon?: ReactNode;
+  position: string;
+  fromX: number;
+}
+
+interface DeepDiveItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: ReactNode;
+  screen: ScreenKey;
+  screenAlt: string;
+  statusBarTone: "light" | "dim";
+  surface: "surface" | "background";
+  chips: readonly [ChipSpec, ChipSpec];
+}
+
+function DeepDiveRow({
+  item,
+  index,
+  locale,
+}: {
+  item: DeepDiveItem;
+  index: number;
+  locale: Locale;
+}) {
+  const rowRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: rowRef,
+    offset: ["start 0.88", "end 0.25"],
+  });
+
+  const isEven = index % 2 === 0;
+  const phoneY = useScrollTransform(scrollYProgress, [0, 0.45, 1], [28, 0, -14]);
+  const phoneScale = useScrollTransform(scrollYProgress, [0, 0.45], [0.96, 1]);
+  const textY = useScrollTransform(scrollYProgress, [0, 0.4], [20, 0]);
+  const textOpacity = useScrollTransform(scrollYProgress, [0, 0.32], [0, 1]);
+
+  const chip1X = useScrollTransform(scrollYProgress, [0.1, 0.48], [item.chips[0].fromX, 0]);
+  const chip1Opacity = useScrollTransform(scrollYProgress, [0.1, 0.42], [0, 1]);
+  const chip2X = useScrollTransform(scrollYProgress, [0.18, 0.54], [item.chips[1].fromX, 0]);
+  const chip2Opacity = useScrollTransform(scrollYProgress, [0.18, 0.48], [0, 1]);
+
+  return (
+    <div
+      ref={rowRef}
+      className={`overflow-hidden border-t border-black/[0.05] py-24 lg:py-32 ${
+        item.surface === "surface" ? "bg-surface" : "bg-background"
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        <div
+          className={`flex flex-col items-center gap-12 lg:gap-20 ${
+            isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+          }`}
+        >
+          {/* Copy column */}
+          <m.div
+            style={{ opacity: textOpacity, y: textY }}
+            className="z-10 flex-1 text-center lg:text-left motion-reduce:opacity-100! motion-reduce:transform-none!"
+          >
+            <div className="mb-5 inline-flex size-14 items-center justify-center rounded-2xl bg-primary-container text-primary ring-1 ring-primary/15">
+              {item.icon}
+            </div>
+            <h2 className="text-balance text-3xl font-extrabold tracking-tight text-text-main sm:text-4xl lg:text-5xl">
+              {item.title}
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-text-muted sm:text-lg lg:mx-0">
+              {item.description}
+            </p>
+          </m.div>
+
+          {/* Shared iPhone + unified StoryChips */}
+          <div className="relative flex flex-1 justify-center w-full">
+            <m.div
+              style={{ y: phoneY, scale: phoneScale }}
+              className="relative w-full max-w-[250px] sm:max-w-[280px] lg:max-w-[300px] motion-reduce:transform-none!"
+            >
+              <IPhone className="w-full" statusBarTone={item.statusBarTone}>
+                <Image
+                  src={getScreenSrc(item.screen, locale)}
+                  alt={item.screenAlt}
+                  width={1206}
+                  height={2622}
+                  unoptimized
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover select-none"
+                />
+              </IPhone>
+
+              <m.div
+                style={{ opacity: chip1Opacity, x: chip1X }}
+                className={`absolute z-30 ${item.chips[0].position} motion-reduce:opacity-100! motion-reduce:transform-none!`}
+              >
+                <StoryChip
+                  label={item.chips[0].label}
+                  value={item.chips[0].value}
+                  tone={item.chips[0].tone}
+                  icon={item.chips[0].icon}
+                />
+              </m.div>
+
+              <m.div
+                style={{ opacity: chip2Opacity, x: chip2X }}
+                className={`absolute z-30 ${item.chips[1].position} motion-reduce:opacity-100! motion-reduce:transform-none!`}
+              >
+                <StoryChip
+                  label={item.chips[1].label}
+                  value={item.chips[1].value}
+                  tone={item.chips[1].tone}
+                  icon={item.chips[1].icon}
+                />
+              </m.div>
+            </m.div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function FeatureDeepDive() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const s = t.story.screens;
 
-  const deepDiveFeatures = [
+  const items: readonly DeepDiveItem[] = [
     {
       id: "quick-add",
       title: t.deepDive.quickAdd.title,
       description: t.deepDive.quickAdd.description,
-      icon: <Scan size={32} />,
-      theme: "light",
-      image: "/images/mockups/device-5.png",
-      floatingCards: [
+      icon: <Receipt size={26} aria-hidden="true" />,
+      screen: "add-expense",
+      screenAlt: s.add,
+      statusBarTone: "light",
+      surface: "surface",
+      chips: [
         {
-          icon: <Receipt size={20} />,
-          iconColor: "text-primary",
-          iconBg: "bg-primary/10",
-          title: t.deepDive.quickAdd.card1Title,
-          value: "₺1,450.00",
-          position: "top-10 -left-10 lg:-left-20",
-          delay: 0.2,
+          label: t.deepDive.quickAdd.card1Title,
+          value: t.deepDive.quickAdd.card1Val,
+          icon: <Receipt size={16} className="shrink-0 text-primary" aria-hidden="true" />,
+          position: "top-[20%] -left-3 sm:-left-10 lg:-left-20",
+          fromX: 24,
         },
         {
-          icon: <Scan size={20} />,
-          iconColor: "text-primary",
-          iconBg: "bg-primary/10",
-          title: t.deepDive.quickAdd.card2Title,
+          label: t.deepDive.quickAdd.card2Title,
           value: t.deepDive.quickAdd.card2Val,
-          position: "bottom-24 -right-10 lg:-right-20",
-          delay: 0.6,
-        }
-      ]
-    },
-    {
-      id: "settle",
-      title: t.deepDive.settle.title,
-      description: t.deepDive.settle.description,
-      icon: <HandCoins size={32} />,
-      theme: "dark",
-      image: "/images/mockups/device-3.png",
-      floatingCards: [
-        {
-          icon: <ArrowRightLeft size={20} />,
-          iconColor: "text-emerald-600",
-          iconBg: "bg-emerald-50",
-          title: t.deepDive.settle.card1Title,
-          value: "₺800.00",
-          position: "top-20 -right-10 lg:-right-20",
-          delay: 0.3,
-        }
-      ]
-    },
-    {
-      id: "goals",
-      title: t.deepDive.goals.title,
-      description: t.deepDive.goals.description,
-      icon: <Target size={32} />,
-      theme: "light",
-      image: "/images/mockups/device-7.png",
-      floatingCards: [
-        {
-          icon: <Trophy size={20} />,
-          iconColor: "text-primary",
-          iconBg: "bg-primary/10",
-          title: t.deepDive.goals.card1Title,
-          value: t.deepDive.goals.card1Val,
-          position: "bottom-12 sm:bottom-16 -left-10 lg:-left-20",
-          delay: 0.4,
-        }
-      ]
+          tone: "positive",
+          position: "bottom-[22%] -right-3 sm:-right-10 lg:-right-20",
+          fromX: -24,
+        },
+      ],
     },
     {
       id: "groups",
       title: t.deepDive.groups.title,
       description: t.deepDive.groups.description,
-      icon: <Users size={32} />,
-      theme: "dark",
-      image: "/images/mockups/device-2.png",
-      floatingCards: [
+      icon: <Users size={26} aria-hidden="true" />,
+      screen: "group-debts",
+      screenAlt: s.debts,
+      statusBarTone: "light",
+      surface: "background",
+      chips: [
         {
-          icon: <Users size={20} />,
-          iconColor: "text-primary",
-          iconBg: "bg-primary/10",
-          title: t.deepDive.groups.card1Title,
+          label: t.deepDive.groups.card1Title,
           value: t.deepDive.groups.card1Val,
-          position: "top-1/4 -left-10 lg:-left-20",
-          delay: 0.2,
+          tone: "positive",
+          position: "top-[24%] -right-3 sm:-right-10 lg:-right-20",
+          fromX: -24,
         },
         {
-          icon: <UserPlus size={20} />,
-          iconColor: "text-primary",
-          iconBg: "bg-primary/10",
-          title: t.deepDive.groups.card2Title,
+          label: t.deepDive.groups.card2Title,
           value: t.deepDive.groups.card2Val,
-          position: "bottom-20 -right-14 lg:-right-28",
-          delay: 0.7,
-        }
-      ]
+          tone: "negative",
+          position: "bottom-[24%] -left-3 sm:-left-10 lg:-left-20",
+          fromX: 24,
+        },
+      ],
+    },
+    {
+      id: "settle",
+      title: t.deepDive.settle.title,
+      description: t.deepDive.settle.description,
+      icon: <ArrowRightLeft size={26} aria-hidden="true" />,
+      screen: "debt-simplify",
+      screenAlt: s.simplify,
+      statusBarTone: "light",
+      surface: "surface",
+      chips: [
+        {
+          label: t.deepDive.settle.card1Title,
+          value: t.deepDive.settle.card1Val,
+          tone: "positive",
+          icon: <CheckCircle2 size={16} className="shrink-0 text-[#047857]" aria-hidden="true" />,
+          position: "top-[26%] -left-3 sm:-left-10 lg:-left-20",
+          fromX: 24,
+        },
+        {
+          label: t.deepDive.settle.card2Title,
+          value: t.deepDive.settle.card2Val,
+          position: "bottom-[20%] -right-3 sm:-right-10 lg:-right-20",
+          fromX: -24,
+        },
+      ],
+    },
+    {
+      id: "first-run-plans",
+      title: t.deepDive.goals.title,
+      description: t.deepDive.goals.description,
+      icon: <Sparkles size={26} aria-hidden="true" />,
+      screen: "plans",
+      screenAlt: s.plans,
+      statusBarTone: "dim",
+      surface: "background",
+      chips: [
+        {
+          label: t.deepDive.goals.card1Title,
+          value: t.deepDive.goals.card1Val,
+          position: "top-[22%] -right-3 sm:-right-10 lg:-right-20",
+          fromX: -24,
+        },
+        {
+          label: t.deepDive.goals.card2Title,
+          value: t.deepDive.goals.card2Val,
+          icon: <FileArchive size={16} className="shrink-0 text-primary" aria-hidden="true" />,
+          position: "bottom-[22%] -left-3 sm:-left-10 lg:-left-20",
+          fromX: 24,
+        },
+      ],
     },
   ];
 
   return (
-    <section className="relative w-full">
-      {deepDiveFeatures.map((feature, index) => {
-        const isDark = feature.theme === "dark";
-        const isEven = index % 2 === 0;
-
-        return (
-          <div
-            key={feature.id}
-            className={`py-24 lg:py-32 overflow-hidden ${
-              isDark ? "bg-primary text-white" : "bg-white text-text-main"
-            }`}
-          >
-            <div className="max-w-7xl mx-auto px-6">
-              <div
-                className={`flex flex-col gap-12 lg:gap-20 items-center ${
-                  isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                }`}
-              >
-                {/* Text Content */}
-                <motion.div
-                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                  className="flex-1 space-y-6 text-center lg:text-left z-10"
-                >
-                  <div
-                    className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 ${
-                      isDark ? "bg-white/10 text-white" : "bg-primary/10 text-primary"
-                    }`}
-                  >
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-bold tracking-tight">
-                    {feature.title}
-                  </h3>
-                  <p
-                    className={`text-lg md:text-xl leading-relaxed ${
-                      isDark ? "text-white/80" : "text-text-muted"
-                    }`}
-                  >
-                    {feature.description}
-                  </p>
-                </motion.div>
-
-                {/* Mockup/Image with Floating Cards */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-                  className="flex-1 w-full flex justify-center relative"
-                >
-                  <div className="relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[440px] xl:max-w-[460px]">
-                    {feature.floatingCards?.map((card, i) => (
-                      <FloatingCard 
-                        key={i} 
-                        className={card.position} 
-                        delay={card.delay}
-                        yOffset={12}
-                        duration={4 + i}
-                      >
-                        <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full ${card.iconBg} flex items-center justify-center ${card.iconColor} shrink-0`}>
-                          {card.icon}
-                        </div>
-                        <div>
-                          <p className="text-[11px] uppercase tracking-wider font-semibold text-slate-500">
-                            {card.title}
-                          </p>
-                          <p className="text-sm sm:text-base font-bold text-slate-900 leading-tight">
-                            {card.value}
-                          </p>
-                        </div>
-                      </FloatingCard>
-                    ))}
-
-                    <Image 
-                      src={feature.image}
-                      alt={feature.title}
-                      width={1030}
-                      height={2108}
-                      unoptimized
-                      priority={index === 0}
-                      className="w-full h-auto drop-shadow-2xl relative z-0"
-                    />
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </section>
+    <LazyMotion features={domAnimation}>
+      <section className="relative w-full">
+        {items.map((item, index) => (
+          <DeepDiveRow key={item.id} item={item} index={index} locale={locale} />
+        ))}
+      </section>
+    </LazyMotion>
   );
 }

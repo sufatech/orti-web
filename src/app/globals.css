@@ -2,35 +2,56 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-background: #F9FAFB;
+  --color-background: #F8F6FC;
   --color-surface: #FFFFFF;
+  --color-surface-tinted: #F3EEFF;
   --color-primary: #630ED4;
+  --color-primary-deep: #4905A3;
   --color-primary-container: #F0E6FF;
   --color-secondary: #8B5CF6;
   --color-text-main: #111827;
   --color-text-muted: #4B5563;
-  
+
   --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @layer base {
   html {
-    background-color: #630ED4;
+    background-color: var(--color-primary);
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
     color: var(--color-text-main);
+    background-color: var(--color-background);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-container);
+    color: var(--color-primary-deep);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 
 @layer utilities {
   .glass {
-    background-color: color-mix(in srgb, var(--color-surface) 85%, transparent);
+    background-color: color-mix(in srgb, var(--color-surface) 88%, transparent);
     backdrop-filter: blur(12px);
-    border: 1px solid color-mix(in srgb, #000000 5%, transparent);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 8%, transparent);
+    box-shadow: 0 8px 30px rgba(17, 24, 39, 0.05);
   }
 }

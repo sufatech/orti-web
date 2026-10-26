@@ -14,16 +14,17 @@ export const translations = {
       titlePart1: "Ortak",
       titlePart2: "Harcamaları",
       titlePart3: "Adilce Bölüş",
-      subtitle: "Ev arkadaşlarınızla, tatil grubunuzla veya ailenizle bütçenizi yönetin. Uygulamayı indirin, kim kime ne kadar borçlu derdine son verin.",
+      subtitle:
+        "Ev arkadaşlarınızla, tatil grubunuzla veya ailenizle bütçenizi yönetin. Uygulamayı indirin, kim kime ne kadar borçlu derdine son verin.",
       appStore: "App Store'dan İndir",
       googlePlay: "Google Play'den İndir",
       cards: {
         receivable: "Alacağınız",
-        groupName: "İtalya Turu",
-        partners: "4 Ortak",
+        groupName: "Kapadokya Tatili",
+        partners: "4 Üye",
         settlement: "Hesaplaşma",
         settled: "Tamamlandı",
-      }
+      },
     },
     story: {
       demoNote: "Örnek veriler",
@@ -31,19 +32,23 @@ export const translations = {
       steps: [
         {
           title: "Harcamayı ekle",
-          description: "Ne ödediysen yaz, grubu seç. Ödeyen sensin; kaç kişi arasında bölüneceğini işaretle.",
+          description:
+            "Ne ödediysen yaz, grubu seç. Ödeyen sensin; kaç kişi arasında bölüneceğini işaretle.",
         },
         {
           title: "İstediğin gibi böl",
-          description: "Eşit, yüzde ya da tam tutar. Orti herkesin payını anında hesaplar.",
+          description:
+            "Eşit, yüzde ya da tam tutar. Orti herkesin payını anında hesaplar.",
         },
         {
           title: "Kim kime ne kadar, tek bakışta",
-          description: "Grubun hesabı canlı kalır: kimden alacaklısın, kime borçlusun.",
+          description:
+            "Grubun hesabı canlı kalır: kimden alacaklısın, kime borçlusun.",
         },
         {
           title: "Öde, kaydet, kapat",
-          description: "Ödemeyi kaydettiğin anda borç kapanır. Hesaplaşma mesajlarına gerek kalmaz.",
+          description:
+            "Ödemeyi kaydettiğin anda borç kapanır. Hesaplaşma mesajlarına gerek kalmaz.",
         },
       ],
       chips: {
@@ -62,11 +67,15 @@ export const translations = {
         add: "Orti'de harcama ekleme ekranı",
         debts: "Orti'de grup bakiyeleri ekranı",
         settle: "Orti'de ödeme kaydetme ekranı",
+        firstRun: "Orti başlangıç ve grup oluşturma ekranı",
+        simplify: "Orti borç sadeleştirme ekranı",
+        plans: "Orti Pro plan ve dışa aktarma ekranı",
       },
     },
     simplify: {
       title: "Gereksiz transferleri ele",
-      description: "Ali Can'a, Can da Deniz'e borçluysa iki ödeme gerekmez: Ali doğrudan Deniz'e öder. Orti bunu grubun tamamı için kendi hesaplar.",
+      description:
+        "Ali Can'a, Can da Deniz'e borçluysa iki ödeme gerekmez: Ali doğrudan Deniz'e öder. Orti bunu grubun tamamı için kendi hesaplar.",
       before: "Önce: 2 ödeme",
       after: "Sonra: 1 ödeme",
       people: { a: "Ali", b: "Can", c: "Deniz" },
@@ -93,93 +102,114 @@ export const translations = {
       },
     },
     stats: {
-      stat1Val: "30+",
-      stat1Label: "Global Para Birimi",
-      stat2Val: "Canlı Kur",
-      stat2Label: "Otomatik FX Dönüşümü",
+      stat1Val: "3 Bölüşüm Modu",
+      stat1Label: "Eşit, Yüzde veya Tam Tutar",
+      stat2Val: "Tek Transfer",
+      stat2Label: "Otomatik Borç Sadeleştirme",
       stat3Val: "%0 Komisyon",
       stat3Label: "Tamamen Şeffaf & Ücretsiz",
-      stat4Val: "256-bit",
-      stat4Label: "Güvenli Şifreli Altyapı",
+      stat4Val: "PDF & ZIP",
+      stat4Label: "Raporlama ve Yedekleme",
     },
     deepDive: {
       quickAdd: {
-        title: "Hızlı Fiş Ekleme",
-        description: "Hesapları tek tek girmekle uğraşmayın. Fişinizin fotoğrafını uygulamaya kaydedin, toplam tutarı arkadaşlarınız arasında kolayca paylaştırın.",
-        card1Title: "Market Alışverişi",
-        card2Title: "Fiş Tarandı",
-        card2Val: "Başarılı",
-      },
-      settle: {
-        title: "Karmaşık Hesaplara Son",
-        description: "Gruptaki herkesin birbirine farklı borçları mı var? Orti'nin akıllı algoritması, kimin kime ne kadar ödemesi gerektiğini en aza indirger ve size en sade çözümü sunar.",
-        card1Title: "Can'a Ödeme",
-      },
-      goals: {
-        title: "Birlikte Biriktirin",
-        description: "Gelecek tatiliniz veya ev eşyanız için ortak birikim hedefleri belirleyin. Grubunuzla birlikte hedefe doğru ilerleyişi anlık olarak takip edin.",
-        card1Title: "Roma & Floransa Turu",
-        card1Val: "%78 Tamamlandı",
+        title: "Kiminle Paylaşıyorsan Saniyeler İçinde Ekle",
+        description:
+          "Grubu seç, tutarı gir ve kategoriyi işaretle. Eşit, yüzde ya da tam tutar seçenekleriyle kimin ne kadar ödeyeceği anında netleşsin.",
+        card1Title: "Kapadokya Tatili",
+        card1Val: "₺2.180,00",
+        card2Title: "Bölüşüm · Eşit (4 kişi)",
+        card2Val: "₺545,00 / kişi",
       },
       groups: {
-        title: "Grup & Arkadaş Yönetimi",
-        description: "Ev arkadaşları, ofis tayfası veya seyahat grubu... Grup oluşturun, herkesin bütçesini tek bir ekrandan, şeffaf bir şekilde yönetin.",
-        card1Title: "Ev Arkadaşları",
-        card1Val: "3 Aktif Üye",
-        card2Title: "Yeni Davet",
-        card2Val: "Kabul Edildi",
+        title: "Grup Bakiyeleri Her An Canlı",
+        description:
+          "Ev arkadaşları, tatil ekibi veya aile bütçesi... Kimin sana ne kadar borçlu olduğunu ve kime ödeme yapman gerektiğini tek ekrandan şeffafça takip et.",
+        card1Title: "Mehmet sana borçlu",
+        card1Val: "₺1.600,00",
+        card2Title: "Zeynep'e borcun",
+        card2Val: "₺416,67",
+      },
+      settle: {
+        title: "Karmaşık Borç Ağlarını Tek Ödemede Kapat",
+        description:
+          "Gruptaki herkesin birbirine farklı borçları mı var? Orti gereksiz ara transferleri eler; ödemeyi kaydettiğin anda tüm bakiyeler güncellenir.",
+        card1Title: "Ödeme kaydedildi",
+        card1Val: "₺1.600,00",
+        card2Title: "Kalan transfer",
+        card2Val: "0 borç",
+      },
+      goals: {
+        title: "Saniyeler İçinde Başla, Dilediğinde Dışa Aktar",
+        description:
+          "Ücretsiz olarak 3 gruba kadar hemen oluştur, arkadaşlarını bağlantı ile davet et. Orti Pro ile sınırsız grup aç, PDF harcama raporu ve ZIP yedeği al.",
+        card1Title: "Ücretsiz Başlangıç",
+        card1Val: "3 aktif grup",
+        card2Title: "Orti Pro",
+        card2Val: "PDF & ZIP Yedek",
       },
     },
     features: {
       badge: "Neden Orti Kullanmalısınız?",
-      subtitle: "Finansal ilişkilerinizi şeffaf ve düzenli hale getirmek için ihtiyacınız olan tüm özellikler cebinizde.",
+      subtitle:
+        "Ortak harcamaları konuşmadan, tablolarla uğraşmadan şeffaf ve adil biçimde yönetmek için tasarlandı.",
       items: [
         {
-          title: "Yapay Zeka ile Fiş Tarama",
-          description: "Harcamaları tek tek girmekle uğraşmayın. Fişinizin fotoğrafını çekin, Orti saniyeler içinde okuyup harcamayı oluştursun.",
+          title: "Esnek Bölüşüm Seçenekleri",
+          description:
+            "Harcamaları eşit, yüzde (%) veya tam tutar olarak bölün; yalnızca ilgili kişileri harcamaya dahil edin.",
         },
         {
-          title: "Ortak Hedefler Belirleyin",
-          description: "Gelecek tatiliniz veya ev eşyanız için grubunuzla ortak birikim hedefleri belirleyin, ilerlemeyi birlikte takip edin.",
+          title: "Otomatik Borç Sadeleştirme",
+          description:
+            "Zincirleme borçları tek transfere indirgeyen algoritma ile grup içi para trafiğini en aza indirin.",
         },
         {
-          title: "Detaylı Notlar & Etiketler",
-          description: "Harcamalarınıza detaylı notlar ekleyin, fotoğraflar ve özel etiketlerle hiçbir ayrıntıyı unutmayın.",
+          title: "Grup Notları ve Hedef Takibi",
+          description:
+            "Grup içinde ortak bütçe ilerlemesini, işlem geçmişini ve önemli notları tek ekranda tutun.",
         },
         {
-          title: "Hızlı Borç Hesaplama",
-          description: "Karmaşık hesaplamalara son. Algoritmamız kimin kime ne kadar ödemesi gerektiğini matematiksel olarak en aza indirger.",
+          title: "Tek Dokunuşla Hesaplaşma",
+          description:
+            "Yapılan ödemeyi kaydedin; grup bakiyesi ve alacak-verecek listesi anında güncellensin.",
         },
         {
-          title: "Çoklu Dil Desteği",
-          description: "Uluslararası arkadaş gruplarınız için Türkçe, İngilizce ve daha fazla dil desteği ile sınırları tamamen kaldırın.",
+          title: "PDF Rapor ve ZIP Yedekleme",
+          description:
+            "Tatil veya dönem sonunda tüm harcamaları PDF raporu ya da taşınabilir ZIP arşivi olarak dışa aktarın.",
         },
         {
-          title: "Güvenli Veri Altyapısı",
-          description: "Tüm finansal verileriniz uçtan uca şifrelenir ve banka standartlarında güvende tutulur.",
+          title: "Misafir Üye ve Kolay Davet",
+          description:
+            "Uygulamayı henüz indirmemiş arkadaşlarınızı bile gruba ekleyin veya davet bağlantısıyla anında dahil edin.",
         },
-      ]
+      ],
     },
     howItWorks: {
       title: "Sadece 3 Adımda Her Şey Çözülür",
-      subtitle: "Orti'yi kullanmaya başlamak ve arkadaşlarınızla hesaplaşmak işte bu kadar basit.",
+      subtitle:
+        "Orti'yi kullanmaya başlamak ve arkadaşlarınızla hesaplaşmak işte bu kadar basit.",
       steps: [
         {
           step: "01",
           title: "Grup Oluşturun",
-          description: "Arkadaşlarınızı, ev arkadaşlarınızı veya ailenizi davet edin, ortak bütçenizi anında başlatın.",
+          description:
+            "Arkadaşlarınızı, ev arkadaşlarınızı veya ailenizi davet edin, ortak bütçenizi anında başlatın.",
         },
         {
           step: "02",
           title: "Harcamaları Ekleyin",
-          description: "Kim ne ödediyse uygulamaya girin veya fiş fotoğrafını çekin; harcamalar saniyeler içinde bölünsün.",
+          description:
+            "Kim ne ödediyse uygulamaya girin; eşit, yüzde veya tam tutarla saniyeler içinde bölünsün.",
         },
         {
           step: "03",
           title: "Tek Tuşla Hesaplaşın",
-          description: "Akıllı algoritma gereksiz transferleri eler ve kimin kime en sade şekilde ödeyeceğini gösterir.",
+          description:
+            "Akıllı algoritma gereksiz transferleri eler ve kimin kime en sade şekilde ödeyeceğini gösterir.",
         },
-      ]
+      ],
     },
     faq: {
       title: "Sıkça Sorulan Sorular",
@@ -187,40 +217,44 @@ export const translations = {
       items: [
         {
           question: "Orti tamamen ücretsiz mi?",
-          answer: "Evet, Orti'nin tüm temel özellikleri (sahibi olduğunuz 3 gruba kadar grup oluşturma, harcama ekleme, borç sadeleştirme ve bakiye takibi) ücretsizdir. Sınırsız grup, PDF rapor, dışa aktarma ve yedekten içe aktarma Orti Pro ile gelir.",
-        },
-        {
-          question: "Hangi ülkelerde geçerli? Farklı para birimleri kullanabilir miyim?",
-          answer: "Orti tüm dünyada kullanılabilir. Yurt dışı seyahatleriniz ve uluslararası gruplarınız için 100'den fazla para birimini destekler ve anlık döviz kurları ile otomatik dönüştürme sağlar.",
+          answer:
+            "Evet, Orti'nin tüm temel özellikleri (sahibi olduğunuz 3 gruba kadar grup oluşturma, harcama ekleme, borç sadeleştirme ve bakiye takibi) ücretsizdir. Sınırsız grup, PDF rapor, dışa aktarma ve yedekten içe aktarma Orti Pro ile gelir.",
         },
         {
           question: "Gruptaki harcamaları eşit olmayan oranlarda bölebilir miyim?",
-          answer: "Kesinlikle. Harcamaları eşit bölmenin yanı sıra yüzde (%), tam tutar, pay/hisse veya belirli kişileri dahil edip çıkararak dilediğiniz gibi özelleştirebilirsiniz.",
+          answer:
+            "Kesinlikle. Harcamaları eşit bölmenin yanı sıra yüzde (%), tam tutar veya yalnızca seçili grup üyelerini dahil ederek dilediğiniz gibi özelleştirebilirsiniz.",
         },
         {
-          question: "Yapay zeka ile fiş tarama nasıl çalışır?",
-          answer: "Restoran, market veya benzinlik fişinizin fotoğrafını çektiğinizde Orti'nin yapay zeka OCR motoru toplam tutarı, tarihi ve kalemleri otomatik olarak okur ve saniyeler içinde harcama kartına dönüştürür.",
-        },
-        {
-          question: "Verilerim ve finansal kayıtlarım güvende mi?",
-          answer: "Kesinlikle. Tüm finansal verileriniz uçtan uca 256-bit SSL şifreleme ve banka standartlarında güvenlik protokolleri ile korunur. Verileriniz asla üçüncü taraflarla paylaşılmaz.",
+          question: "Borç sadeleştirme (Debt Simplification) nasıl çalışır?",
+          answer:
+            "Ali Can'a, Can da Deniz'e borçluysa iki ayrı transfer yerine Ali doğrudan Deniz'e ödeme yapar. Orti gruptaki tüm bakiyeleri analiz ederek en az sayıda transferle hesaplaşma planını çıkarır.",
         },
         {
           question: "Arkadaşım Orti kullanmıyorsa yine de harcama ekleyebilir miyim?",
-          answer: "Evet. Arkadaşınızı gruba doğrudan 'misafir üye' olarak ekleyebilir, onun adına harcama ve borç kayıtlarını şeffaf şekilde yönetebilirsiniz.",
+          answer:
+            "Evet. Arkadaşınızı gruba doğrudan üye olarak ekleyebilir, onun adına harcama ve borç kayıtlarını yönetebilir ve dilediğinizde davet bağlantısı gönderebilirsiniz.",
         },
         {
-          question: "Borç sadeleştirme (Debt Simplification) algoritması nedir?",
-          answer: "Çok kişilik gruplarda herkesin birbirine borçlu olduğu karmaşık durumları Orti matematiksel graf algoritmalarıyla analiz eder ve toplam borçları en az sayıda para transferiyle sıfırlayacak en sade ödeme planını oluşturur.",
+          question: "Grup verilerini dışa aktarabilir veya yedekleyebilir miyim?",
+          answer:
+            "Orti Pro ile grup harcamalarınızı detaylı PDF raporu olarak alabilir, tüm grup verisini ZIP olarak dışa aktarabilir ve yedekten geri yükleyebilirsiniz.",
         },
-      ]
+        {
+          question: "Verilerim ve finansal kayıtlarım güvende mi?",
+          answer:
+            "Kesinlikle. Tüm verileriniz şifreli bağlantı (TLS) ve güvenli altyapı standartları ile korunur; üçüncü taraflarla asla paylaşılmaz.",
+        },
+      ],
     },
     cta: {
       title: "Hemen İndirin, Hesapları Kolayca Bölüşün",
-      subtitle: "Orti ile finansal ilişkilerinizi şeffaf ve stressiz hale getirin. iOS ve Android için ücretsiz indirin.",
+      subtitle:
+        "Orti ile ortak harcamalarınızı şeffaf ve stressiz hale getirin. iOS ve Android için ücretsiz indirin.",
     },
     footer: {
-      tagline: "Ev arkadaşlarınızla, tatil grubunuzla veya ailenizle ortak harcamalarınızı kolayca takip edin, adil bir şekilde bölüşün.",
+      tagline:
+        "Ev arkadaşlarınızla, tatil grubunuzla veya ailenizle ortak harcamalarınızı kolayca takip edin, adil bir şekilde bölüşün.",
       app: "Uygulama",
       legal: "Yasal",
       privacy: "Gizlilik Politikası",
@@ -255,7 +289,8 @@ export const translations = {
       messagePlaceholder: "Mesajınızı buraya yazın...",
       submitBtn: "Mesajı Gönder",
       successTitle: "Mesajınız Alındı!",
-      successDesc: "Bize ulaştığınız için teşekkür ederiz. Ekibimiz mesajınızı inceleyip en kısa sürede geri dönüş yapacaktır.",
+      successDesc:
+        "Bize ulaştığınız için teşekkür ederiz. Ekibimiz mesajınızı inceleyip en kısa sürede geri dönüş yapacaktır.",
       newMsgBtn: "Yeni Mesaj Gönder",
     },
     privacyPage: {
@@ -267,7 +302,7 @@ export const translations = {
       badge: "Hizmet Şartları",
       title: "Kullanım Koşulları",
       lastUpdated: "Son Güncelleme: Ekim 2026",
-    }
+    },
   },
   en: {
     nav: {
@@ -282,16 +317,17 @@ export const translations = {
       titlePart1: "Split",
       titlePart2: "Shared Expenses",
       titlePart3: "Fairly & Effortlessly",
-      subtitle: "Manage shared budgets with roommates, travel buddies, or family. Download Orti and put an end to who-owes-whom headaches.",
+      subtitle:
+        "Manage shared budgets with roommates, travel buddies, or family. Download Orti and put an end to who-owes-whom headaches.",
       appStore: "Download on App Store",
       googlePlay: "Download on Google Play",
       cards: {
         receivable: "You are owed",
-        groupName: "Italy Tour",
+        groupName: "Lisbon Trip",
         partners: "4 Members",
         settlement: "Settlement",
         settled: "Completed",
-      }
+      },
     },
     story: {
       demoNote: "Sample data",
@@ -299,19 +335,23 @@ export const translations = {
       steps: [
         {
           title: "Add the expense",
-          description: "Enter what you paid and pick the group. You are the payer; choose who shares the cost.",
+          description:
+            "Enter what you paid and pick the group. You are the payer; choose who shares the cost.",
         },
         {
           title: "Split it your way",
-          description: "Equally, by percentage or by exact amount. Orti works out everyone's share instantly.",
+          description:
+            "Equally, by percentage or by exact amount. Orti works out everyone's share instantly.",
         },
         {
           title: "See who owes whom at a glance",
-          description: "The group's balance stays live: who owes you and who you owe.",
+          description:
+            "The group's balance stays live: who owes you and who you owe.",
         },
         {
           title: "Pay, record, done",
-          description: "The moment you record the payment, the debt is closed. No more chasing in chat.",
+          description:
+            "The moment you record the payment, the debt is closed. No more chasing in chat.",
         },
       ],
       chips: {
@@ -330,11 +370,15 @@ export const translations = {
         add: "Orti add expense screen",
         debts: "Orti group balances screen",
         settle: "Orti record payment screen",
+        firstRun: "Orti first-run and group setup screen",
+        simplify: "Orti debt simplification screen",
+        plans: "Orti Pro plans and export screen",
       },
     },
     simplify: {
       title: "Cut the pointless transfers",
-      description: "If Ali owes Can and Can owes Deniz, you do not need two payments: Ali pays Deniz directly. Orti works this out for the whole group.",
+      description:
+        "If Ali owes Can and Can owes Deniz, you do not need two payments: Ali pays Deniz directly. Orti works this out for the whole group.",
       before: "Before: 2 payments",
       after: "After: 1 payment",
       people: { a: "Ali", b: "Can", c: "Deniz" },
@@ -361,93 +405,114 @@ export const translations = {
       },
     },
     stats: {
-      stat1Val: "30+",
-      stat1Label: "Global Currencies",
-      stat2Val: "Live FX",
-      stat2Label: "Real-time Currency Sync",
+      stat1Val: "3 Split Modes",
+      stat1Label: "Equal, Percentage or Exact",
+      stat2Val: "1 Transfer",
+      stat2Label: "Automatic Debt Simplification",
       stat3Val: "0% Fees",
-      stat3Label: "Transparent & Free to Use",
-      stat4Val: "256-bit",
-      stat4Label: "Encrypted Security",
+      stat3Label: "Transparent & Free to Start",
+      stat4Val: "PDF & ZIP",
+      stat4Label: "Reports and Full Backups",
     },
     deepDive: {
       quickAdd: {
-        title: "Fast Receipt Scanner",
-        description: "No more typing expenses manually. Snap a receipt photo and instantly split totals among your group with AI precision.",
-        card1Title: "Grocery Shopping",
-        card2Title: "Receipt Scanned",
-        card2Val: "Success",
-      },
-      settle: {
-        title: "No More Complex Math",
-        description: "Multiple people owing different amounts? Orti's smart algorithm simplifies debts into the minimum number of payments.",
-        card1Title: "Payment to Can",
-      },
-      goals: {
-        title: "Save Together for Goals",
-        description: "Set shared savings goals for vacations or apartment upgrades. Track group progress together in real time.",
-        card1Title: "Rome & Florence Trip",
-        card1Val: "78% Completed",
+        title: "Add Shared Expenses in Seconds",
+        description:
+          "Pick the group, enter the amount, and choose a category. Split equally, by percentage, or by exact amount so everyone's share is clear right away.",
+        card1Title: "Lisbon Trip",
+        card1Val: "$218.00",
+        card2Title: "Split · Equal (4 people)",
+        card2Val: "$54.50 / person",
       },
       groups: {
-        title: "Group & Friend Management",
-        description: "Roommates, office crew, or travel groups... Create groups and manage everyone's balance transparently in one place.",
-        card1Title: "Roommates",
-        card1Val: "3 Active Members",
-        card2Title: "New Invite",
-        card2Val: "Accepted",
+        title: "Live Group Balances at a Glance",
+        description:
+          "Roommates, holiday crew, or family household... See who owes you and who you need to pay from one transparent group screen.",
+        card1Title: "Liam owes you",
+        card1Val: "$160.00",
+        card2Title: "You owe Sofia",
+        card2Val: "$41.67",
+      },
+      settle: {
+        title: "Close Complex Debt Loops in One Tap",
+        description:
+          "Multiple people owing each other? Orti eliminates middleman transfers, and recording a payment updates the entire group's balance immediately.",
+        card1Title: "Payment recorded",
+        card1Val: "$160.00",
+        card2Title: "Remaining transfers",
+        card2Val: "0 debts",
+      },
+      goals: {
+        title: "Start Free in Seconds, Export Anytime",
+        description:
+          "Create up to 3 groups for free and invite friends with a link. Upgrade to Orti Pro for unlimited groups, PDF expense reports, and portable ZIP backups.",
+        card1Title: "Free Starter",
+        card1Val: "3 active groups",
+        card2Title: "Orti Pro",
+        card2Val: "PDF & ZIP Backup",
       },
     },
     features: {
       badge: "Why Choose Orti?",
-      subtitle: "All the features you need to make financial relationships transparent and effortless in your pocket.",
+      subtitle:
+        "Built to keep shared finances transparent and fair without spreadsheets or awkward reminders.",
       items: [
         {
-          title: "AI Receipt Scanning",
-          description: "Don't bother entering receipts one by one. Take a photo and Orti reads and generates the expense in seconds.",
-        },
-        {
-          title: "Shared Savings Goals",
-          description: "Set mutual savings targets for vacations or home essentials and track group progress together.",
-        },
-        {
-          title: "Detailed Notes & Tags",
-          description: "Add detailed notes, photos, and custom tags to expenses so no detail ever gets forgotten.",
+          title: "Flexible Split Modes",
+          description:
+            "Divide costs equally, by percentage (%), or by exact amount while including only the members involved.",
         },
         {
           title: "Smart Debt Simplification",
-          description: "Eliminate complex loops. Our algorithm mathematically minimizes the number of transfers needed to settle up.",
+          description:
+            "Eliminate circular payments automatically so the whole group settles up with the fewest transfers.",
         },
         {
-          title: "Multi-Currency Support",
-          description: "Seamlessly split expenses in 100+ global currencies with live exchange rates for international travels.",
+          title: "Group Progress & Notes",
+          description:
+            "Keep group spending totals, transaction history, and shared notes organized in one place.",
         },
         {
-          title: "Bank-Grade Security",
-          description: "All your financial records are end-to-end encrypted with 256-bit TLS/SSL and stored securely.",
+          title: "One-Tap Settle Up",
+          description:
+            "Record a payment in two taps and watch everyone's balances update immediately.",
         },
-      ]
+        {
+          title: "PDF Reports & ZIP Backups",
+          description:
+            "Export clean PDF expense summaries or full portable ZIP archives at the end of a trip or month.",
+        },
+        {
+          title: "Guest Members & Instant Invites",
+          description:
+            "Track shares for friends before they even install the app, or invite them straight into the group via link.",
+        },
+      ],
     },
     howItWorks: {
       title: "Simple & Clear in Just 3 Steps",
-      subtitle: "Getting started with Orti and settling expenses with friends is that simple.",
+      subtitle:
+        "Getting started with Orti and settling expenses with friends is that simple.",
       steps: [
         {
           step: "01",
           title: "Create a Group",
-          description: "Invite your friends, roommates, or travel buddies and start your shared budget instantly.",
+          description:
+            "Invite your friends, roommates, or travel buddies and start your shared budget instantly.",
         },
         {
           step: "02",
           title: "Add Expenses",
-          description: "Log who paid what manually or snap receipt photos with our AI scanner in seconds.",
+          description:
+            "Log who paid what and split equally, by percentage, or by exact amount in seconds.",
         },
         {
           step: "03",
           title: "Settle with One Tap",
-          description: "The smart algorithm eliminates circular debts and shows the simplest way to settle balances.",
+          description:
+            "The smart algorithm eliminates circular debts and shows the simplest way to settle balances.",
         },
-      ]
+      ],
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -455,40 +520,44 @@ export const translations = {
       items: [
         {
           question: "Is Orti completely free?",
-          answer: "Yes, the core features of Orti (up to 3 groups you own, expense splitting, debt simplification, and balance tracking) are free. Unlimited groups, PDF reports, export and import from a backup come with Orti Pro.",
-        },
-        {
-          question: "Can I use Orti internationally with multiple currencies?",
-          answer: "Yes! Orti supports 100+ global currencies and automatically converts exchange rates in real time for your trips.",
+          answer:
+            "Yes, the core features of Orti (up to 3 groups you own, expense splitting, debt simplification, and balance tracking) are free. Unlimited groups, PDF reports, export and import from a backup come with Orti Pro.",
         },
         {
           question: "Can I split expenses unequally?",
-          answer: "Absolutely. You can split bills equally, by exact amounts, percentages (%), shares, or select specific members for each expense.",
+          answer:
+            "Absolutely. You can split bills equally, by exact amounts, percentages (%), or select specific group members for each expense.",
         },
         {
-          question: "How does AI receipt scanning work?",
-          answer: "When you snap a receipt photo, Orti's AI OCR engine automatically extracts items, total amount, and date into an expense card.",
-        },
-        {
-          question: "Is my personal and financial data secure?",
-          answer: "Yes, all data is protected with 256-bit SSL encryption and strict security standards. Your data is never sold to third parties.",
+          question: "How does the Debt Simplification algorithm work?",
+          answer:
+            "If Ali owes Can and Can owes Deniz, Ali pays Deniz directly instead of making two separate transfers. Orti resolves the whole group's balances into the minimum number of payments.",
         },
         {
           question: "Can I add someone who doesn't have the app yet?",
-          answer: "Yes! You can add anyone as a guest member and track their balances on their behalf until they join.",
+          answer:
+            "Yes. You can add anyone to the group, track their expenses and balances right away, and share an invite link whenever they are ready to join.",
         },
         {
-          question: "What is the Debt Simplification algorithm?",
-          answer: "In multi-person groups, Orti calculates graph flow optimization to settle all balances using the minimum possible number of money transfers.",
+          question: "Can I export or back up my group data?",
+          answer:
+            "With Orti Pro, you can generate formatted PDF expense reports, export complete group data as a ZIP archive, and restore from a backup anytime.",
         },
-      ]
+        {
+          question: "Is my personal and financial data secure?",
+          answer:
+            "Yes, all data is protected with encrypted TLS connections and strict security standards. Your data is never sold to third parties.",
+        },
+      ],
     },
     cta: {
       title: "Download Now & Split Bills with Ease",
-      subtitle: "Make shared finances transparent and stress-free. Download for free on iOS and Android.",
+      subtitle:
+        "Make shared finances transparent and stress-free. Download for free on iOS and Android.",
     },
     footer: {
-      tagline: "Track shared expenses with roommates, travel buddies, or family and split fairly.",
+      tagline:
+        "Track shared expenses with roommates, travel buddies, or family and split fairly.",
       app: "App",
       legal: "Legal",
       privacy: "Privacy Policy",
@@ -523,7 +592,8 @@ export const translations = {
       messagePlaceholder: "Write your message here...",
       submitBtn: "Send Message",
       successTitle: "Message Received!",
-      successDesc: "Thank you for reaching out. Our team will review your message and get back to you shortly.",
+      successDesc:
+        "Thank you for reaching out. Our team will review your message and get back to you shortly.",
       newMsgBtn: "Send Another Message",
     },
     privacyPage: {
@@ -535,6 +605,6 @@ export const translations = {
       badge: "Terms of Service",
       title: "Terms of Service",
       lastUpdated: "Last Updated: October 2026",
-    }
-  }
+    },
+  },
 } as const;
