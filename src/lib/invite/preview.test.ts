@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { fetchInvitePreview, parsePreviewBody } from "./preview";
 import { inviteSchemeLink, inviteUniversalLink, playStoreInviteLink } from "./links";
 import { resolveInviteLocale } from "../../i18n/invite";
@@ -72,6 +72,23 @@ describe("links", () => {
       "https://play.google.com/store/apps/details?id=app.orti&referrer=invite_token%3Dabc",
     );
   });
+});
+
+describe("app scheme", () => {
+  afterEach(() => vi.unstubAllEnvs());
+
+  it("uses ORTI_APP_SCHEME when valid", () => {
+    vi.stubEnv("ORTI_APP_SCHEME", "orti-dev");
+    expect(inviteSchemeLink("abc")).toBe("orti-dev://invite/abc");
+  });
+
+  it.each(["", "Orti", "1orti", "orti://", "or ti", "javascript:alert(1)//"])(
+    "falls back to orti for invalid value %j",
+    (value) => {
+      vi.stubEnv("ORTI_APP_SCHEME", value);
+      expect(inviteSchemeLink("abc")).toBe("orti://invite/abc");
+    },
+  );
 });
 
 describe("resolveInviteLocale", () => {

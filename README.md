@@ -32,3 +32,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Environment
+
+See `.env.example`. The invite page (`/invite/[token]`) reads, at runtime on the server:
+
+- `ORTI_API_BASE_URL`: base URL of the public API for the invite preview (default `https://api.orti.app`).
+- `ORTI_APP_SCHEME`: the app's custom URL scheme for the environment (`orti`, `orti-dev`, `orti-local`; default `orti`; must match `^[a-z][a-z0-9-]*$`, otherwise the default is used).
