@@ -25,6 +25,73 @@ export const translations = {
         settled: "Tamamlandı",
       }
     },
+    story: {
+      demoNote: "Örnek veriler",
+      stepLabel: "Adım {n} / 4",
+      steps: [
+        {
+          title: "Harcamayı ekle",
+          description: "Ne ödediysen yaz, grubu seç. Ödeyen sensin; kaç kişi arasında bölüneceğini işaretle.",
+        },
+        {
+          title: "İstediğin gibi böl",
+          description: "Eşit, yüzde ya da tam tutar. Orti herkesin payını anında hesaplar.",
+        },
+        {
+          title: "Kim kime ne kadar, tek bakışta",
+          description: "Grubun hesabı canlı kalır: kimden alacaklısın, kime borçlusun.",
+        },
+        {
+          title: "Öde, kaydet, kapat",
+          description: "Ödemeyi kaydettiğin anda borç kapanır. Hesaplaşma mesajlarına gerek kalmaz.",
+        },
+      ],
+      chips: {
+        bill: "Akşam yemeği",
+        billAmount: "₺2.180,00",
+        shareAmount: "₺545,00",
+        people: ["Sen", "Mehmet", "Zeynep", "Ece"],
+        owedLabel: "Mehmet sana borçlu",
+        owedAmount: "₺1.600,00",
+        oweLabel: "Zeynep'e borcun",
+        oweAmount: "₺416,67",
+        settledLabel: "Ödeme kaydedildi",
+        settledAmount: "₺1.600,00",
+      },
+      screens: {
+        add: "Orti'de harcama ekleme ekranı",
+        debts: "Orti'de grup bakiyeleri ekranı",
+        settle: "Orti'de ödeme kaydetme ekranı",
+      },
+    },
+    simplify: {
+      title: "Gereksiz transferleri ele",
+      description: "Ali Can'a, Can da Deniz'e borçluysa iki ödeme gerekmez: Ali doğrudan Deniz'e öder. Orti bunu grubun tamamı için kendi hesaplar.",
+      before: "Önce: 2 ödeme",
+      after: "Sonra: 1 ödeme",
+      people: { a: "Ali", b: "Can", c: "Deniz" },
+      amount: "₺300",
+    },
+    plans: {
+      title: "Ücretsiz başla, gerekirse Pro'ya geç",
+      free: {
+        name: "Ücretsiz",
+        items: [
+          "Sahibi olduğun 3 gruba kadar",
+          "Harcama ekleme; eşit, yüzde veya tam tutar bölme",
+          "Bakiye takibi ve hesaplaşma",
+        ],
+      },
+      pro: {
+        name: "Orti Pro",
+        items: [
+          "Sınırsız grup",
+          "PDF harcama raporu",
+          "Grup verisini ZIP olarak dışa aktarma",
+          "Yedekten içe aktarma",
+        ],
+      },
+    },
     stats: {
       stat1Val: "30+",
       stat1Label: "Global Para Birimi",
@@ -56,7 +123,7 @@ export const translations = {
       },
       groups: {
         title: "Grup & Arkadaş Yönetimi",
-        description: "Ev arkadaşları, ofis tayfası veya seyahat grubu... Sınırsız grup oluşturun, herkesin bütçesini tek bir ekrandan, şeffaf bir şekilde yönetin.",
+        description: "Ev arkadaşları, ofis tayfası veya seyahat grubu... Grup oluşturun, herkesin bütçesini tek bir ekrandan, şeffaf bir şekilde yönetin.",
         card1Title: "Ev Arkadaşları",
         card1Val: "3 Aktif Üye",
         card2Title: "Yeni Davet",
@@ -120,7 +187,7 @@ export const translations = {
       items: [
         {
           question: "Orti tamamen ücretsiz mi?",
-          answer: "Evet, Orti'nin tüm temel özellikleri (sınırsız grup oluşturma, harcama ekleme, borç sadeleştirme ve bakiye takibi) tamamen ücretsizdir.",
+          answer: "Evet, Orti'nin tüm temel özellikleri (sahibi olduğunuz 3 gruba kadar grup oluşturma, harcama ekleme, borç sadeleştirme ve bakiye takibi) ücretsizdir. Sınırsız grup, PDF rapor, dışa aktarma ve yedekten içe aktarma Orti Pro ile gelir.",
         },
         {
           question: "Hangi ülkelerde geçerli? Farklı para birimleri kullanabilir miyim?",
@@ -226,6 +293,73 @@ export const translations = {
         settled: "Completed",
       }
     },
+    story: {
+      demoNote: "Sample data",
+      stepLabel: "Step {n} of 4",
+      steps: [
+        {
+          title: "Add the expense",
+          description: "Enter what you paid and pick the group. You are the payer; choose who shares the cost.",
+        },
+        {
+          title: "Split it your way",
+          description: "Equally, by percentage or by exact amount. Orti works out everyone's share instantly.",
+        },
+        {
+          title: "See who owes whom at a glance",
+          description: "The group's balance stays live: who owes you and who you owe.",
+        },
+        {
+          title: "Pay, record, done",
+          description: "The moment you record the payment, the debt is closed. No more chasing in chat.",
+        },
+      ],
+      chips: {
+        bill: "Dinner",
+        billAmount: "$218.00",
+        shareAmount: "$54.50",
+        people: ["You", "Liam", "Sofia", "Noah"],
+        owedLabel: "Liam owes you",
+        owedAmount: "$160.00",
+        oweLabel: "You owe Sofia",
+        oweAmount: "$41.67",
+        settledLabel: "Payment recorded",
+        settledAmount: "$160.00",
+      },
+      screens: {
+        add: "Orti add expense screen",
+        debts: "Orti group balances screen",
+        settle: "Orti record payment screen",
+      },
+    },
+    simplify: {
+      title: "Cut the pointless transfers",
+      description: "If Ali owes Can and Can owes Deniz, you do not need two payments: Ali pays Deniz directly. Orti works this out for the whole group.",
+      before: "Before: 2 payments",
+      after: "After: 1 payment",
+      people: { a: "Ali", b: "Can", c: "Deniz" },
+      amount: "$30",
+    },
+    plans: {
+      title: "Start free, go Pro when you need it",
+      free: {
+        name: "Free",
+        items: [
+          "Up to 3 groups you own",
+          "Add expenses; split equally, by percentage or by exact amount",
+          "Balance tracking and settling up",
+        ],
+      },
+      pro: {
+        name: "Orti Pro",
+        items: [
+          "Unlimited groups",
+          "PDF expense report",
+          "Export group data as ZIP",
+          "Import from a backup",
+        ],
+      },
+    },
     stats: {
       stat1Val: "30+",
       stat1Label: "Global Currencies",
@@ -257,7 +391,7 @@ export const translations = {
       },
       groups: {
         title: "Group & Friend Management",
-        description: "Roommates, office crew, or travel groups... Create unlimited groups and manage everyone's balance transparently in one place.",
+        description: "Roommates, office crew, or travel groups... Create groups and manage everyone's balance transparently in one place.",
         card1Title: "Roommates",
         card1Val: "3 Active Members",
         card2Title: "New Invite",
@@ -321,7 +455,7 @@ export const translations = {
       items: [
         {
           question: "Is Orti completely free?",
-          answer: "Yes, all core features of Orti (unlimited groups, expense splitting, debt simplification, and balance tracking) are completely free.",
+          answer: "Yes, the core features of Orti (up to 3 groups you own, expense splitting, debt simplification, and balance tracking) are free. Unlimited groups, PDF reports, export and import from a backup come with Orti Pro.",
         },
         {
           question: "Can I use Orti internationally with multiple currencies?",

@@ -1,19 +1,19 @@
-import { Hero } from "@/components/sections/Hero";
-import { AppStats } from "@/components/sections/AppStats";
+import { ScrollStory } from "@/components/story/ScrollStory";
+import { DebtSimplify } from "@/components/sections/DebtSimplify";
+import { Plans } from "@/components/sections/Plans";
 import { FeatureDeepDive } from "@/components/sections/FeatureDeepDive";
 import { Features } from "@/components/sections/Features";
-import { HowItWorks } from "@/components/sections/HowItWorks";
 import { FAQ } from "@/components/sections/FAQ";
 import { CtaSection } from "@/components/sections/CtaSection";
 
 export default function Home() {
   return (
     <main className="flex-grow">
-      <Hero />
-      <AppStats />
+      <ScrollStory />
+      <DebtSimplify />
       <FeatureDeepDive />
       <Features />
-      <HowItWorks />
+      <Plans />
       <FAQ />
       <CtaSection />
     </main>

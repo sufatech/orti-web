@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
+import { StoreLinks } from "@/components/ui/StoreLinks";
 import { useI18n } from "@/i18n/I18nContext";
 
 export function CtaSection() {
@@ -29,14 +29,12 @@ export function CtaSection() {
             {t.cta.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-7 bg-white text-primary hover:bg-white/90 shadow-xl shadow-black/20 whitespace-nowrap">
-              {t.hero.appStore}
-            </Button>
-            <Button size="lg" variant="outline" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-7 border-white text-white hover:bg-white/10 whitespace-nowrap">
-              {t.hero.googlePlay}
-            </Button>
-          </div>
+          <StoreLinks
+            appStoreLabel={t.hero.appStore}
+            googlePlayLabel={t.hero.googlePlay}
+            className="items-center justify-center pt-4"
+            buttonClassName="h-14 px-8 text-base sm:text-lg"
+          />
         </motion.div>
       </div>
     </section>
