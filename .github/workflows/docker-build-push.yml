@@ -41,7 +41,8 @@ jobs:
           # yq kurulu değilse kur
           wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 && chmod +x /usr/local/bin/yq
           
-          ENV_DIR="${{ github.ref_name }}"
+          # main deploys to the prod cluster folder; dev to dev.
+          ENV_DIR="${{ github.ref_name == 'main' && 'prod' || github.ref_name }}"
           yq -i ".image.tag = \"${{ steps.vars.outputs.tag }}\"" clusters/orti/${ENV_DIR}/services/website.yaml
           
           git config user.name "CI Bot"
