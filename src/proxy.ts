@@ -1,15 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
+import { localeForPath } from "@/lib/pages";
 
 export function proxy(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const isDev = process.env.NODE_ENV === "development";
 
   // Content Security Policy
-  // Eliminates 'unsafe-inline' and 'data:' from script-src
-  // Enforces object-src 'none', base-uri 'self', frame-ancestors 'none'
+  // Production: strict nonce + 'strict-dynamic' + upgrade-insecure-requests (no 'unsafe-inline' in script-src).
+  // Development: allow Next.js dev server HMR/hydration scripts over local HTTP without nonce/strict-dynamic blocking.
+  const scriptSrc = isDev
+    ? "script-src 'self' 'unsafe-inline' 'unsafe-eval';"
+    : `script-src 'self' 'nonce-${nonce}' 'strict-dynamic';`;
+  const connectSrc = isDev ? "connect-src 'self' ws: wss:;" : "";
+  const upgradeInsecure = isDev ? "" : "upgrade-insecure-requests;";
+
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ""};
+    ${scriptSrc}
+    ${connectSrc}
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
     font-src 'self';
@@ -17,7 +25,7 @@ export function proxy(request: NextRequest) {
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
-    upgrade-insecure-requests;
+    ${upgradeInsecure}
   `;
 
   // Clean extra whitespace and newlines
@@ -27,6 +35,10 @@ export function proxy(request: NextRequest) {
 
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-nonce", nonce);
+  const pathname = request.nextUrl.pathname;
+  const urlLocale = pathname === "/en" || pathname.startsWith("/en/") ? "en" : localeForPath(pathname);
+  if (urlLocale) requestHeaders.set("x-locale", urlLocale);
+  else requestHeaders.delete("x-locale");
   requestHeaders.set(
     "Content-Security-Policy",
     contentSecurityPolicyHeaderValue

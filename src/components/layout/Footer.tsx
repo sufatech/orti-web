@@ -5,10 +5,21 @@ import { Mail, MessageCircle, Globe } from "lucide-react";
 import { useI18n } from "@/i18n/I18nContext";
 import { siteConfig } from "@/config/site";
 import { Logo } from "@/components/ui/Logo";
+import { landing, landingIds } from "@/content/landing";
+import { guideIds, guidesMeta } from "@/content/guides-meta";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const { locale, setLocale, t } = useI18n();
+
+  const legalPaths =
+    locale === "tr"
+      ? { privacy: "/gizlilik-politikasi", terms: "/kullanim-kosullari", contact: "/iletisim" }
+      : { privacy: "/privacy-policy", terms: "/terms-of-service", contact: "/contact" };
+  const learnLinks = [
+    ...landingIds.map((id) => ({ href: landing[id][locale].path, label: landing[id][locale].breadcrumb })),
+    ...guideIds.map((id) => ({ href: guidesMeta[id][locale].path, label: guidesMeta[id][locale].title })),
+  ];
 
   const toggleLanguage = () => {
     setLocale(locale === "tr" ? "en" : "tr");
@@ -46,7 +57,7 @@ export function Footer() {
                 <Mail size={16} />
               </a>
               <a 
-                href="/contact" 
+                href={legalPaths.contact}
                 className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/90 hover:text-white transition-all border border-white/15"
                 aria-label="Contact"
               >
@@ -73,6 +84,13 @@ export function Footer() {
                   {t.nav.download}
                 </Link>
               </li>
+              {learnLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-white/70 hover:text-white transition-colors text-sm">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -80,17 +98,17 @@ export function Footer() {
             <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">{t.footer.legal}</h4>
             <ul className="flex flex-col gap-3">
               <li>
-                <Link href="/privacy-policy" className="text-white/70 hover:text-white transition-colors text-sm">
+                <Link href={legalPaths.privacy} className="text-white/70 hover:text-white transition-colors text-sm">
                   {t.footer.privacy}
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="text-white/70 hover:text-white transition-colors text-sm">
+                <Link href={legalPaths.terms} className="text-white/70 hover:text-white transition-colors text-sm">
                   {t.footer.terms}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-white/70 hover:text-white transition-colors text-sm">
+                <Link href={legalPaths.contact} className="text-white/70 hover:text-white transition-colors text-sm">
                   {t.footer.contact}
                 </Link>
               </li>

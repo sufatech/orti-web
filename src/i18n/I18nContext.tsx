@@ -21,16 +21,15 @@ function getInitialLocale(): Locale {
     if (savedLocale === "tr" || savedLocale === "en") {
       return savedLocale;
     }
-
-    const browserLang = navigator.language || (navigator.languages && navigator.languages[0]) || "";
-    return browserLang.toLowerCase().startsWith("tr") ? "tr" : "en";
+    return "tr";
   } catch {
     return "tr";
   }
 }
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
+/** `forcedLocale`: the URL decides the language (e.g. /en/...), on server and client alike. */
+export function I18nProvider({ children, forcedLocale }: { children: ReactNode; forcedLocale?: Locale }) {
+  const [locale, setLocaleState] = useState<Locale>(forcedLocale ?? getInitialLocale);
 
   useEffect(() => {
     document.documentElement.lang = locale;

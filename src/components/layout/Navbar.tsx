@@ -13,36 +13,27 @@ const NAV_PROBE_Y = 56;
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isOverLightSection, setIsOverLightSection] = useState(false);
+  const [isOverLightSection, setIsOverLightSection] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const isSubpage = pathname !== "/";
+  const isSubpage = pathname !== "/" && pathname !== "/en";
   const { locale, setLocale, t } = useI18n();
 
   useEffect(() => {
     const updateSurface = () => {
-      setIsScrolled(window.scrollY > 16);
+      setIsScrolled(window.scrollY > 12);
 
       if (pathname !== "/") {
         setIsOverLightSection(true);
         return;
       }
 
-      const hero = document.getElementById("hero");
-      const download = document.getElementById("download");
       const footer = document.querySelector("footer");
-
-      const heroRect = hero?.getBoundingClientRect();
-      const inHero = heroRect ? heroRect.bottom > NAV_PROBE_Y : window.scrollY < 640;
-
-      const downloadRect = download?.getBoundingClientRect();
-      const inDownload = downloadRect ? downloadRect.top <= NAV_PROBE_Y : false;
-
       const footerRect = footer?.getBoundingClientRect();
       const inFooter = footerRect ? footerRect.top <= NAV_PROBE_Y : false;
 
-      setIsOverLightSection(!inHero && !inDownload && !inFooter);
+      setIsOverLightSection(!inFooter);
     };
 
     updateSurface();
@@ -57,10 +48,10 @@ export function Navbar() {
   const isLightTheme = isSubpage || isOverLightSection;
 
   const navLinks = [
-    { name: t.nav.features, href: isSubpage ? "/#features" : "#features" },
     { name: t.nav.howItWorks, href: isSubpage ? "/#how-it-works" : "#how-it-works" },
+    { name: t.nav.features, href: isSubpage ? "/#features" : "#features" },
     { name: t.nav.faq, href: isSubpage ? "/#faq" : "#faq" },
-    { name: t.nav.contact, href: "/contact" },
+    { name: t.nav.contact, href: locale === "tr" ? "/iletisim" : "/contact" },
   ];
 
   const toggleLanguage = () => {
@@ -80,18 +71,18 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,border-color,padding,box-shadow,color] duration-200 motion-reduce:transition-none ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,border-color,box-shadow,color] duration-200 motion-reduce:transition-none ${
         isLightTheme
-          ? "bg-white/90 backdrop-blur-md border-black/[0.08] shadow-[0_4px_20px_rgba(15,8,34,0.06)] py-3 text-text-main"
-          : isScrolled
-            ? "bg-primary-deep/90 backdrop-blur-md border-white/15 shadow-[0_8px_24px_rgba(15,8,34,0.22)] py-3 text-white"
-            : "bg-primary-deep/65 backdrop-blur-md border-white/10 py-3.5 text-white"
+          ? isScrolled
+            ? "bg-white/92 backdrop-blur-md border-black/[0.08] shadow-[0_4px_20px_rgba(15,8,34,0.05)] py-2 text-text-main"
+            : "bg-background/85 backdrop-blur-md border-black/[0.05] py-2.5 text-text-main"
+          : "bg-primary-deep/90 backdrop-blur-md border-white/15 shadow-[0_8px_24px_rgba(15,8,34,0.22)] py-2 text-white"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between">
         <Link
           href="/"
-          className={`flex items-center rounded-lg hover:opacity-85 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-4 ${
+          className={`inline-flex min-h-11 items-center rounded-lg px-1 hover:opacity-85 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-4 ${
             isLightTheme
               ? "text-primary focus-visible:outline-primary"
               : "text-white focus-visible:outline-white"
@@ -102,12 +93,12 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`rounded-md px-1 py-0.5 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 ${
+              className={`inline-flex min-h-11 items-center rounded-md px-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${
                 isLightTheme
                   ? pathname === link.href
                     ? "text-primary font-bold focus-visible:outline-primary"
@@ -120,12 +111,12 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           {/* Language Switcher */}
           <button
             type="button"
             onClick={toggleLanguage}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors border focus-visible:outline-2 focus-visible:outline-offset-2 ${
+            className={`inline-flex min-h-11 items-center gap-1.5 px-3.5 rounded-full text-xs font-semibold transition-colors border focus-visible:outline-2 focus-visible:outline-offset-2 ${
               isLightTheme
                 ? "border-black/15 text-text-main hover:bg-primary-container/60 hover:border-primary/30 focus-visible:outline-primary"
                 : "border-white/30 bg-white/10 text-white hover:bg-white/20 hover:border-white focus-visible:outline-white"
@@ -140,8 +131,8 @@ export function Navbar() {
             variant={isLightTheme ? "primary" : "outline"}
             className={
               isLightTheme
-                ? ""
-                : "border-white/80 bg-white text-primary hover:bg-white/90 focus-visible:outline-white"
+                ? "min-h-11 px-5 text-sm"
+                : "min-h-11 px-5 text-sm border-white/80 bg-white text-primary hover:bg-white/90 focus-visible:outline-white"
             }
             size="sm"
             onClick={handleDownloadClick}
@@ -155,7 +146,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={toggleLanguage}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center gap-1 px-3 rounded-full text-xs font-semibold border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${
               isLightTheme
                 ? "border-black/15 text-text-main hover:bg-primary-container/60 focus-visible:outline-primary"
                 : "border-white/30 bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white"
@@ -167,7 +158,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className={`p-2 rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${
               isLightTheme
                 ? "text-text-main hover:bg-black/5 focus-visible:outline-primary"
                 : "text-white hover:bg-white/10 focus-visible:outline-white"
@@ -176,7 +167,7 @@ export function Navbar() {
             aria-expanded={isMobileMenuOpen}
             aria-label="Toggle Menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -195,12 +186,12 @@ export function Navbar() {
                 : "border-white/15 bg-primary-deep/95 backdrop-blur-xl text-white"
             }`}
           >
-            <nav className="flex flex-col p-6 gap-4">
+            <nav className="flex flex-col p-6 gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-lg font-medium border-b pb-2 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 ${
+                  className={`inline-flex min-h-11 items-center text-base font-medium border-b rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 ${
                     isLightTheme
                       ? "border-black/[0.06] text-text-main hover:text-primary focus-visible:outline-primary"
                       : "border-white/10 text-white hover:text-white/80 focus-visible:outline-white"
@@ -210,13 +201,13 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <div className="flex flex-col gap-3 mt-4">
+              <div className="flex flex-col gap-3 mt-3">
                 <Button
                   variant={isLightTheme ? "primary" : "outline"}
                   className={
                     isLightTheme
-                      ? "w-full"
-                      : "w-full border-white/80 bg-white text-primary hover:bg-white/90"
+                      ? "w-full min-h-11"
+                      : "w-full min-h-11 border-white/80 bg-white text-primary hover:bg-white/90"
                   }
                   onClick={() => {
                     setIsMobileMenuOpen(false);
